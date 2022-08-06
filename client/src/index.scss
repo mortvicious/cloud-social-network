@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway:wght@300;400;500;600&display=swap');
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -5,8 +7,8 @@ body {
   // font-family: 'Open Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $clr-light;
-  color: $clr-dark;
+  // background-color: $clr-light;
+  // color: $clr-dark;
   // background-color: $clr-dark;
   // color: white;
   
@@ -47,15 +49,35 @@ input::-ms-clear {display: none;}
 button {
   cursor: pointer;
   &:hover {
-    color: $clr-hover !important; 
+    // color: $clr-hover !important; 
   }
 }
 button::-moz-focus-inner{border: 0; padding: 0;}
 a, a:visited{color: inherit; text-decoration: none;}
 a:hover{
   text-decoration: none;
-  color: $clr-hover;
+  // color: $clr-hover;
 }
 ul li {list-style: none;}
-h1,h2,h3,h4,h5,h6 {font-weight: 400; font-size: inherit;}
+h1,h2,h3,h4,h5,h6 {
+  // font-weight: 600; font-size: inherit;
+  font-family: 'Comfortaa'
+}
 
+
+
+.app {
+  min-height: 100vh;
+}
+
+.main-font {
+  font-family: 'Comfortaa';
+}
+
+.vh-12 {
+  height: 12vh;
+}
+
+.vh-88 {
+  min-height: 88vh;
+}

@@ -1,17 +1,17 @@
 export interface IUser {
-    isAuth: boolean
-    username: string
-    id: string
-    link: string
+	isAuth: boolean
+	username: string
+	id: string
+	link: string
 }
 
 export interface IUserFriends {
-    friends: string[]
-    getFriendRequests: () => void
-    friendRequestAccept: () => void
-    friendRequestDecline: () => void
-    friendRequestSend: () => void
-    friendRemove: () => void
+	friends: string[]
+	getFriendRequests: () => void
+	friendRequestAccept: () => void
+	friendRequestDecline: () => void
+	friendRequestSend: () => void
+	friendRemove: () => void
 
 }
 

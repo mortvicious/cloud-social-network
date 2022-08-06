@@ -3,10 +3,10 @@ import axios from 'axios'
 import { IUser } from './User.types'
 
 class User implements IUser {
-	isAuth: boolean = false
-	username = ''
-	link = ''
-	id = ''
+	isAuth: boolean = true
+	username: string = ''
+	link: string = ''
+	id: string = ''
 
 	constructor() {
 		makeAutoObservable(this)
