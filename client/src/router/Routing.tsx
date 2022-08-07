@@ -12,6 +12,8 @@ import SearchPage from '../pages/SearchPage'
 import FriendsPage from '../pages/FriendsPage'
 import ClientUserPage from '../pages/ClientUserPage'
 import IDUserPage from '../pages/IDUserPage'
+import CommunityPage from '../pages/CommunityPage'
+import Logo from '../components/Logo'
 
 function Routing() {
 	return user.isAuth ? (
@@ -26,14 +28,17 @@ function Routing() {
 				<Route path='/search' element={<SearchPage />} />
 				<Route path='/user' element={<ClientUserPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
+				<Route path='/community:id' element={<CommunityPage />} />
 			</Routes>
 		</Router>
 	) : (
 		<Router>
+			<Logo />
 			<Routes>
 				<Route path={'/'} element={<LoginPage />} />
 				<Route path='/registration' element={<RegistrationPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
+				<Route path='/community:id' element={<CommunityPage />} />
 			</Routes>
 		</Router>
 	)

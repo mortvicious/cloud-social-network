@@ -2,13 +2,11 @@ import React, { FC } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import Logo from '../components/Logo'
+import { NavLink } from 'react-router-dom'
 
 const LoginPage: FC = () => {
 	return (
-		// <div className='container p-3 px-5 vh-88 d-flex flex-column justify-content-center'>
 		<div className='container p-3 px-5 d-flex flex-column '>
-			<Logo />
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
 				<Card className='p-5 w-50 d-flex '>
 					<Form>
@@ -31,12 +29,9 @@ const LoginPage: FC = () => {
 							<Button variant='primary' type='submit'>
 								Login
 							</Button>
-							<a
-								href='/registration'
-								className='text-decoration-underline pointer'
-							>
+							<NavLink to='/registration' className='text-decoration-underline pointer'>
 								Don't have an account? Registration
-							</a>
+							</NavLink>
 						</div>
 					</Form>
 				</Card>

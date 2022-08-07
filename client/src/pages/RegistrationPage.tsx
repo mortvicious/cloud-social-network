@@ -2,12 +2,12 @@ import React, { FC } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import Logo from '../components/Logo'
+import { NavLink } from 'react-router-dom'
 
 const RegistrationPage: FC = () => {
 	return (
 		<div className='container p-3 px-5 d-flex flex-column justify-content-center'>
-			<Logo />
+			{/* <Logo /> */}
 			<div className='w-100 d-flex justify-content-center mt-1'>
 				<Card className='p-5 w-50 d-flex '>
 					<Form>
@@ -56,9 +56,9 @@ const RegistrationPage: FC = () => {
 							<Button variant='primary' type='submit'>
 								Register
 							</Button>
-							<a href='/' className='text-decoration-underline pointer'>
+							<NavLink to='/' className='text-decoration-underline pointer'>
 								Already registered? Back to login page
-							</a>
+							</NavLink>
 						</div>
 					</Form>
 				</Card>

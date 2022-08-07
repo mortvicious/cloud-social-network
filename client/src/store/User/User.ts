@@ -3,7 +3,7 @@ import axios from 'axios'
 import { IUser } from './User.types'
 
 class User implements IUser {
-	isAuth: boolean = true
+	isAuth: boolean = false
 	username: string = ''
 	link: string = ''
 	id: string = ''
