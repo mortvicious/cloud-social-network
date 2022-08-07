@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import user from '../store/User/User'
+import { observer } from 'mobx-react-lite'
 import LoginPage from '../pages/LoginPage'
 import RegistrationPage from '../pages/RegistrationPage'
 import AppPage from '../pages/AppPage'
-import user from '../store/User/User'
-import Navigation from '../components/Navigation'
 import CommunitiesPage from '../pages/CommunitiesPage'
 import MessengerPage from '../pages/MessengerPage'
 import SettingsPage from '../pages/SettingsPage'
@@ -12,13 +12,13 @@ import SearchPage from '../pages/SearchPage'
 import FriendsPage from '../pages/FriendsPage'
 import ClientUserPage from '../pages/ClientUserPage'
 import IDUserPage from '../pages/IDUserPage'
-import CommunityPage from '../pages/CommunityPage'
+import IDCommunityPage from '../pages/IDCommunityPage'
 import RouterHelper from './RouterHelper'
 
-function Routing() {
+const Routing = observer(() => {
 	return user.isAuth ? (
 		<Router>
-			<Navigation />
+			<RouterHelper authorized={true} />
 			<Routes>
 				<Route path='/' element={<AppPage />} />
 				<Route path='/friends' element={<FriendsPage />} />
@@ -28,21 +28,22 @@ function Routing() {
 				<Route path='/search' element={<SearchPage />} />
 				<Route path='/user' element={<ClientUserPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
-				<Route path='/community:id' element={<CommunityPage />} />
+				<Route path='/community:id' element={<IDCommunityPage />} />
+				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</Router>
 	) : (
 		<Router>
-			<RouterHelper/>
+			<RouterHelper authorized={false} />
 			<Routes>
 				<Route path={'/'} element={<LoginPage />} />
 				<Route path='/registration' element={<RegistrationPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
-				<Route path='/community:id' element={<CommunityPage />} />
+				<Route path='/community:id' element={<IDCommunityPage />} />
+				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</Router>
 	)
-}
-
+})
 
 export default Routing

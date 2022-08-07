@@ -3,8 +3,14 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { NavLink } from 'react-router-dom'
+import user from '../store/User/User'
+import { observer } from 'mobx-react-lite'
 
 const LoginPage: FC = () => {
+	const handleLoginBtn = () => {
+		user.setAuth(true)
+		console.log(user.isAuth)
+	}
 	return (
 		<div className='container p-3 px-5 d-flex flex-column '>
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
@@ -26,10 +32,13 @@ const LoginPage: FC = () => {
 							<Form.Control type='password' placeholder='Enter password' />
 						</Form.Group>
 						<div className='d-flex align-items-center gap-4'>
-							<Button variant='primary' type='submit'>
+							<Button onClick={handleLoginBtn} variant='primary' type='button'>
 								Login
 							</Button>
-							<NavLink to='/registration' className='text-decoration-underline pointer'>
+							<NavLink
+								to='/registration'
+								className='text-decoration-underline pointer'
+							>
 								Don't have an account? Registration
 							</NavLink>
 						</div>

@@ -11,6 +11,10 @@ class User implements IUser {
 	constructor() {
 		makeAutoObservable(this)
 	}
+
+	setAuth(status: boolean) {
+		this.isAuth = status
+	}
 }
 
 export default new User()

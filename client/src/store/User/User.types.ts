@@ -20,5 +20,10 @@ export interface IUserSettings {
 }
 
 export interface IUserAuth {
-
+	login: () => void
+	logout: () => void
+	registration: () => void
+	setToken: () => void
+	authenticate: () => void
+	setError: () => void
 }

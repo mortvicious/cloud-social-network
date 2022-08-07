@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavElement from './NavElement'
 import NotificationBell from './NotificationBell'
 import Search from './Search'
+import user from '../store/User/User'
 
 const Navigation: FC = () => {
 	const [activeLink, setActiveLink] = useState<string>('Home')
@@ -14,6 +15,9 @@ const Navigation: FC = () => {
 	}
 	const handleNotificationClick = () => {
 
+	}
+	const DEBUG_LOGOUT = () => {
+		user.setAuth(false)
 	}
 	return (
 		<Navbar className='border-bottom' bg='light' variant='light'>
@@ -70,8 +74,8 @@ const Navigation: FC = () => {
 						// className='d-flex align-items-center'
 						title='User'
 						icon='bi bi-person-fill text-black-50 i-size-25'
-						onClick={handleClick}
-						to='/user'
+						onClick={DEBUG_LOGOUT}
+						to='/'
 						active={activeLink === 'User'}
 					/>
 				</Nav>
