@@ -4,14 +4,16 @@ import LoginPage from '../pages/LoginPage'
 import RegistrationPage from '../pages/RegistrationPage'
 import AppPage from '../pages/AppPage'
 import user from '../store/User/User'
+import Navigation from '../components/Navigation'
 
 function Routing() {
 	return user.isAuth ? (
 		<Router>
+			<Navigation />
 			<Routes>
 				<Route path='/' element={<AppPage />} />
-				<Route path='/friends' element={<AppPage />} />{' '}
-				<Route path='/communities' element={<AppPage />} />{' '}
+				<Route path='/friends' element={<AppPage />} />
+				<Route path='/communities' element={<AppPage />} />
 				<Route path='/messenger' element={<AppPage />} />
 				<Route path='/settings' element={<AppPage />} />
 				<Route path='/search' element={<AppPage />} />

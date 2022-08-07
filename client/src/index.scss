@@ -89,3 +89,28 @@ h1,h2,h3,h4,h5,h6 {
 .i-size-25 {
   font-size: 25px 
 }
+
+.search-icon {
+  & > * {font-size: 20px;}
+  &:hover > * {
+    color: #1266F1 !important;
+  }
+}
+
+
+.nav-icon:hover {
+  color: #1266F1 !important;
+  cursor: pointer;
+}
+
+.nav-icon-container:hover {
+  border-color: #1266F1 !important;
+}
+
+.input-sm {
+  height: 40%;
+}
+
+.container-full-height {
+  height: 100%;
+}
