@@ -11,13 +11,12 @@ interface IErrors {
 }
 
 class UserAuth implements IUserAuth {
-
 	errors: IErrors = {
 		registration: '',
 		email: '',
 		password: '',
 		passwordMatch: '',
-		uniqueLink: ''
+		uniqueLink: '',
 	}
 
 	constructor() {
