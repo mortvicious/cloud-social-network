@@ -6,7 +6,7 @@ import Navigation from './components/Navigation';
 
 function App() {
 	return (
-		<div className="app">
+		<div className="app bg-light">
 			{user.isAuth ? <Navigation/> : ''}
 			<Routing/>
 		</div>
