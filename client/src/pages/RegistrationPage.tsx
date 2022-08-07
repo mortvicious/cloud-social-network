@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom'
 const RegistrationPage: FC = () => {
 	return (
 		<div className='container p-3 px-5 d-flex flex-column justify-content-center'>
-			{/* <Logo /> */}
 			<div className='w-100 d-flex justify-content-center mt-1'>
 				<Card className='p-5 w-50 d-flex '>
 					<Form>

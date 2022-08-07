@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Logo = () => {
+const Logo: FC = () => {
+
 	return (
 		<>
 			<h1 className='text-center text-primary font-weight-bold display-1 vh-12'>

@@ -13,7 +13,7 @@ import FriendsPage from '../pages/FriendsPage'
 import ClientUserPage from '../pages/ClientUserPage'
 import IDUserPage from '../pages/IDUserPage'
 import CommunityPage from '../pages/CommunityPage'
-import Logo from '../components/Logo'
+import RouterHelper from './RouterHelper'
 
 function Routing() {
 	return user.isAuth ? (
@@ -33,7 +33,7 @@ function Routing() {
 		</Router>
 	) : (
 		<Router>
-			<Logo />
+			<RouterHelper/>
 			<Routes>
 				<Route path={'/'} element={<LoginPage />} />
 				<Route path='/registration' element={<RegistrationPage />} />

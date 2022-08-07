@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { NavLink } from 'react-router-dom'
 
 const NavigationUnauthorized: FC = () => {
+    
   return (
 		<Navbar className='border-bottom' bg='light' variant='light'>
 			<Container className='d-flex w-100 justify-content-between align-items-center'>
