@@ -14,6 +14,7 @@ import ClientUserPage from '../pages/UserPage'
 import IDUserPage from '../pages/IDUserPage'
 import IDCommunityPage from '../pages/IDCommunityPage'
 import RouterHelper from './RouterHelper'
+import IDPostPage from '../pages/IDPostPage'
 
 const Routing = observer(() => {
 	return user.isAuth ? (
@@ -29,6 +30,7 @@ const Routing = observer(() => {
 				<Route path='/user' element={<ClientUserPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
 				<Route path='/community:id' element={<IDCommunityPage />} />
+				<Route path='/post:id' element={<IDPostPage />} />
 				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</Router>
@@ -40,6 +42,7 @@ const Routing = observer(() => {
 				<Route path='/registration' element={<RegistrationPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
 				<Route path='/community:id' element={<IDCommunityPage />} />
+				<Route path='/post:id' element={<IDPostPage />} />
 				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</Router>

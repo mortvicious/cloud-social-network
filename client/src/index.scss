@@ -118,3 +118,11 @@ h1,h2,h3,h4,h5,h6 {
 .hidden {
   display: none;
 }
+
+.mock-avatar {
+  font-size: 40px;
+  // max-height: 1rem;
+  display: flex;
+  aspect-ratio: 1/1;
+  // border-radius: 100%
+}
