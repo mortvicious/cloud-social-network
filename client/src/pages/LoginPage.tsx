@@ -4,12 +4,10 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { NavLink } from 'react-router-dom'
 import user from '../store/User/User'
-import { observer } from 'mobx-react-lite'
 
 const LoginPage: FC = () => {
 	const handleLoginBtn = () => {
 		user.setAuth(true)
-		console.log(user.isAuth)
 	}
 	return (
 		<div className='container p-3 px-5 d-flex flex-column '>

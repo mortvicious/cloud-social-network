@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 
-const ClientUserPage: FC = () => {
+const UserPage: FC = () => {
   return (
     <div>ClientUserPage</div>
   )
 }
 
-export default ClientUserPage
+export default UserPage
