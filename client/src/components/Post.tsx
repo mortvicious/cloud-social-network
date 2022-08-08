@@ -3,7 +3,7 @@ import { Card, Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import UserModel, { IUserModel } from './UserModel'
-import { MockUser } from '../models/MockUser'
+import PostFunctionBtn from './PostFunctionBtn'
 
 interface IPost {
 	content: string
@@ -15,6 +15,9 @@ interface IPost {
 }
 
 const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
+	const handleLikeBtn = () => {}
+	const handleCommentBtn = () => {}
+	const handleShareBtn = () => {}
 	return (
 		<Card className='p-3'>
 			<Container className='d-flex flex-column gap-3'>
@@ -34,9 +37,26 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 						<i className='bi bi-three-dots more-dots'></i>
 					</Col>
 				</Row>
-				<Container>
-					<p>{content}</p>
-				</Container>
+				{/* <Container> */}
+				<p>{content}</p>
+				{/* </Container> */}
+			</Container>
+			<Container className='d-flex gap-5'>
+				<PostFunctionBtn
+					onClick={handleLikeBtn}
+					icon='bi bi-hand-thumbs-up'
+					content='Like'
+				/>
+				<PostFunctionBtn
+					onClick={handleCommentBtn}
+					icon='bi bi-chat-left'
+					content='Comment'
+				/>
+				<PostFunctionBtn
+					onClick={handleShareBtn}
+                    icon='bi bi-arrow-return-right'
+                    content='Share'
+				/>
 			</Container>
 		</Card>
 	)
