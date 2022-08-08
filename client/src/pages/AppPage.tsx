@@ -10,7 +10,7 @@ const AppPage: FC = () => {
 	return (
 		<Container className='container-full-height mt-5'>
 			<Row className='h-100'>
-				<Col xs={10}>
+				<Col xs={9}>
           <Post user={ user1 } content='Post here' />
 				</Col>
 				<Col className='border-left'>2</Col>

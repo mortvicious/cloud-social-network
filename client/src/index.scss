@@ -120,9 +120,26 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .mock-avatar {
-  font-size: 40px;
+  font-size: 45px;
   // max-height: 1rem;
   display: flex;
   aspect-ratio: 1/1;
   // border-radius: 100%
+}
+
+.username {
+  font-size: 20px;
+  &:hover {
+    strong {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-date {
+  font-size: 14px;
+}
+
+.more-dots {
+  font-size: 25px;
 }
