@@ -8,7 +8,7 @@ interface IPostFunctionBtn {
 
 const PostFunctionBtn: FC<IPostFunctionBtn> = ({ icon, content, onClick }) => {
 	return (
-		<button onClick={onClick} type='button' className='btn btn-primary pt-1 pb-1 d-flex gap-2'>
+		<button onClick={onClick} type='button' className='btn btn-light pt-1 pb-1 d-flex gap-2'>
 			<i className={icon}></i>
 			<span className='post-function-btn'>{content}</span>
 		</button>

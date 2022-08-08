@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import UserModel, { IUserModel } from './UserModel'
 import PostFunctionBtn from './PostFunctionBtn'
+import PostCommentInput from './PostCommentInput'
 
 interface IPost {
 	content: string
@@ -37,9 +38,7 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 						<i className='bi bi-three-dots more-dots'></i>
 					</Col>
 				</Row>
-				{/* <Container> */}
 				<p>{content}</p>
-				{/* </Container> */}
 			</Container>
 			<Container className='d-flex gap-5'>
 				<PostFunctionBtn
@@ -57,7 +56,10 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
                     icon='bi bi-arrow-return-right'
                     content='Share'
 				/>
-			</Container>
+            </Container>
+            <Container>
+                <PostCommentInput/>
+            </Container>
 		</Card>
 	)
 }
