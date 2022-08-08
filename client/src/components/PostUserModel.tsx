@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export interface IUserModel {
+export interface IPostUserModel {
 	avatar: string
 	username: string
 	link: string
@@ -10,7 +10,7 @@ export interface IUserModel {
     date?: string
 }
 
-const UserModel: FC<IUserModel> = ({ avatar, username, link, id, post, date }) => {
+const PostUserModel: FC<IPostUserModel> = ({ avatar, username, link, id, post, date }) => {
 	return post === false ? (
 			<NavLink
 				className='d-flex gap-3 text-primary text-decoration-none align-items-center username'
@@ -33,4 +33,4 @@ const UserModel: FC<IUserModel> = ({ avatar, username, link, id, post, date }) =
 	)
 }
 
-export default UserModel
+export default PostUserModel

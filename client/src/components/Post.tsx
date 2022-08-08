@@ -2,13 +2,13 @@ import React, { FC } from 'react'
 import { Card, Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import UserModel, { IUserModel } from './UserModel'
+import PostUserModel, { IPostUserModel } from './PostUserModel'
 import PostFunctionBtn from './PostFunctionBtn'
 import PostCommentInput from './PostCommentInput'
 
 interface IPost {
 	content: string
-	user: IUserModel
+	user: IPostUserModel
 	likes?: []
 	comments?: []
 	date?: string
@@ -24,7 +24,7 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 			<Container className='d-flex flex-column gap-3'>
 				<Row className='align-items-center'>
 					<Col xs={11}>
-						<UserModel
+						<PostUserModel
 							link={user.link}
 							avatar={user.avatar}
 							id={user.id}
