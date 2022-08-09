@@ -26,4 +26,8 @@ export class PostModel implements IPostModel {
 		this.id = id
 		this.link = link
 	}
+
+	static init() {
+		
+	}
 }
