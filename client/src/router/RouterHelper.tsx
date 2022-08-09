@@ -9,7 +9,7 @@ interface IRouterHelper {
 }
 
 const RouterHelper: FC<IRouterHelper> = ({ authorized }) => {
-	let location = useLocation()
+	const location = useLocation()
 	return authorized ? (
 		<Navigation />
 	) : (

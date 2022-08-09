@@ -4,8 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-/API
-
+./API
+.eslintrc.bak.js
+.eslintrc.bak2.js
 # testing
 /coverage
 

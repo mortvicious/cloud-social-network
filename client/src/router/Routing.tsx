@@ -10,7 +10,7 @@ import MessengerPage from '../pages/MessengerPage'
 import SettingsPage from '../pages/SettingsPage'
 import SearchPage from '../pages/SearchPage'
 import FriendsPage from '../pages/FriendsPage'
-import ClientUserPage from '../pages/UserPage'
+import UserPage from '../pages/UserPage'
 import IDUserPage from '../pages/IDUserPage'
 import IDCommunityPage from '../pages/IDCommunityPage'
 import RouterHelper from './RouterHelper'
@@ -27,7 +27,7 @@ const Routing = observer(() => {
 				<Route path='/messenger' element={<MessengerPage />} />
 				<Route path='/settings' element={<SettingsPage />} />
 				<Route path='/search' element={<SearchPage />} />
-				<Route path='/user' element={<ClientUserPage />} />
+				<Route path='/user' element={<UserPage />} />
 				<Route path='/user:id' element={<IDUserPage />} />
 				<Route path='/community:id' element={<IDCommunityPage />} />
 				<Route path='/post:id' element={<IDPostPage />} />

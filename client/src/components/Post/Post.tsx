@@ -2,34 +2,31 @@ import React, { FC } from 'react'
 import { Card, Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import PostUserModel, { IPostUserModel } from './PostUserModel'
+import PostUser from './PostUser'
 import PostFunctionBtn from './PostFunctionBtn'
-import PostCommentInput from './PostCommentInput'
+import PostCommentForm from './PostCommentForm'
+import { IPostModel } from '../../models/Post/Post.types'
 
 interface IPost {
-	content: string
-	user: IPostUserModel
-	likes?: []
-	comments?: []
-	date?: string
-	link?: string
+	post: IPostModel
 }
 
-const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
+const Post: FC<IPost> = ({ post }) => {
 	const handleLikeBtn = () => {}
 	const handleCommentBtn = () => {}
 	const handleShareBtn = () => {}
+	const author = post.author
 	return (
 		<Card className='p-3'>
 			<Container className='d-flex flex-column gap-3 justify-content-between'>
 				<Row className='align-items-center'>
 					<Col className='container-fluid' xs={11}>
-						<PostUserModel
-							link={user.link}
-							avatar={user.avatar}
-							id={user.id}
-							key={user.id}
-							username={user.username}
+						<PostUser
+							link={author.link}
+							avatar={author.avatar}
+							id={author.id}
+							key={author.id}
+							username={author.username}
 							date={'2 hours ago'}
 						/>
 					</Col>
@@ -37,7 +34,7 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 						<i className='bi bi-three-dots more-dots'></i>
 					</Col>
 				</Row>
-				<p>{content}</p>
+				<p>{post.content}</p>
 			</Container>
 			<Container className='d-flex gap-5'>
 				<PostFunctionBtn
@@ -52,13 +49,13 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 				/>
 				<PostFunctionBtn
 					onClick={handleShareBtn}
-                    icon='bi bi-arrow-return-right'
-                    content='Share'
+					icon='bi bi-arrow-return-right'
+					content='Share'
 				/>
-            </Container>
-            <Container>
-                <PostCommentInput/>
-            </Container>
+			</Container>
+			<Container>
+				<PostCommentForm />
+			</Container>
 		</Card>
 	)
 }
