@@ -1,9 +1,9 @@
 export class PostAPI {
-    public static add() { }
-    public static remove() { }
-    public static edit() { }
-    public static like() { }
-    public static comment() { }
-    public static share() { }
-    public static flagAsInappropriate() { }
+    static async add() { }
+    static async remove() { }
+    static async edit() { }
+    static async like() { }
+    static async comment() { }
+    static async share() { }
+    static async flagAsInappropriate() { }
 }

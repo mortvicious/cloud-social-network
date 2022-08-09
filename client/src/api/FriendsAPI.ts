@@ -1,6 +1,6 @@
 export class FriendsAPI {
-    public static sendFriendRequest() { }
-    public static acceptFriendRequest() { }
-    public static declineFriendRequest() { }
-    public static removeFriend() { }
+    static async sendFriendRequest () { }
+    static async acceptFriendRequest () { }
+    static async declineFriendRequest () { }
+    static async removeFriend () { }
 }
