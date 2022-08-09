@@ -9,8 +9,8 @@ const PostCommentInput = () => {
 				placeholder='Share your thoughts'
 				type='text'
 			/>
-			<button className='btn btn-primary btn-sm'>
-				<i className='bi bi-send'></i>
+			<button className='btn btn-light btn-sm'>
+				<i className='bi bi-send i-size-20'></i>
 			</button>
 		</form>
 	)

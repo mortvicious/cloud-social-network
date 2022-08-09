@@ -21,16 +21,15 @@ const Post: FC<IPost> = ({ content, user, likes, comments, date, link }) => {
 	const handleShareBtn = () => {}
 	return (
 		<Card className='p-3'>
-			<Container className='d-flex flex-column gap-3'>
+			<Container className='d-flex flex-column gap-3 justify-content-between'>
 				<Row className='align-items-center'>
-					<Col xs={11}>
+					<Col className='container-fluid' xs={11}>
 						<PostUserModel
 							link={user.link}
 							avatar={user.avatar}
 							id={user.id}
 							key={user.id}
 							username={user.username}
-							post={true}
 							date={'2 hours ago'}
 						/>
 					</Col>

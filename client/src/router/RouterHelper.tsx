@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Logo from '../components/Logo'
-import NavigationUnauthorized from '../components/NavigationUnauthorized'
-import Navigation from '../components/Navigation'
+import NavigationUnauthorized from '../components/Navigation/NavigationUnauthorized'
+import Navigation from '../components/Navigation/Navigation'
 import { useLocation } from 'react-router'
 
 interface IRouterHelper {

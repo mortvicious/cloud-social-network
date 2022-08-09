@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavElement from './NavElement'
 import NotificationBell from './NotificationBell'
 import Search from './Search'
-import user from '../store/User/User'
+import user from '../../store/User/User'
 
 const Navigation: FC = () => {
 	const [activeLink, setActiveLink] = useState<string>('Home')

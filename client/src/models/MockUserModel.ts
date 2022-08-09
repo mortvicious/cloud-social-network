@@ -1,11 +1,11 @@
-interface IMockUser {
+interface IMockUserModel {
     username: string
     id: string
     avatar: string
     link: string
 }
 
-export class MockUser implements IMockUser {
+export class MockUserModel implements IMockUserModel {
     username = ''
     id = ''
     avatar = ''
