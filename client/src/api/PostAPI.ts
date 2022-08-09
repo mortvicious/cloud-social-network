@@ -1,8 +1,9 @@
 export class PostAPI {
-    static addPost() { }
-    static removePost() { }
-    static editPost() { }
-    static likePost() { }
-    static commentPost() { }
-    static sharePost() { }
+    public static add() { }
+    public static remove() { }
+    public static edit() { }
+    public static like() { }
+    public static comment() { }
+    public static share() { }
+    public static flagAsInappropriate() { }
 }
