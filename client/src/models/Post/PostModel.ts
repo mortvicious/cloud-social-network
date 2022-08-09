@@ -1,4 +1,5 @@
 import { IPostModel, IPostUserModel } from './Post.types'
+import { PostUserModel } from './PostUserModel'
 
 export class PostModel implements IPostModel {
 	author!: IPostUserModel
@@ -27,7 +28,15 @@ export class PostModel implements IPostModel {
 		this.link = link
 	}
 
-	static init() {
-		
-	}
+	static init(post: IPostModel) {
+		const { author, content, likes, comments, date, id, link } = post
+		return new PostModel(
+			new PostUserModel(author.username, author.id, author.avatar, author.link),
+			content,
+			likes,
+			comments,
+			date,
+			id,
+			link
+	)}
 }

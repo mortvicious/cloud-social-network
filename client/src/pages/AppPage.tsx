@@ -3,41 +3,36 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Post from '../components/Post/Post'
-import { PostUserModel } from '../models/Post/PostUserModel'
 import { PostModel } from '../models/Post/PostModel'
 import { IPostModel } from '../models/Post/Post.types'
 
-	/* <Post post={post1} /> */
 
 
 
 const AppPage: FC = () => {
 	const [posts, setPosts] = useState<PostModel[]>([])
 
-	const initPost = (post: IPostModel) => {
-		const { author, content, likes, comments, date, id, link } = post
-		const newPost: IPostModel = new PostModel(
-			new PostUserModel(author.username, author.id, author.avatar, author.link),
-			content,
-			likes,
-			comments,
-			date,
-			id,
-			link
-		)
-		return newPost
-	}
-
 	useEffect(() => {
 		//fetch posts pagination
 		//set posts
 	}, [])
 
+	const post1: IPostModel = {
+		author: { username: 'Antonio Margaretti', id: '123', avatar: '', link: 'fgfg' },
+		content: 'I am Antonio Margaretti!',
+		likes: [],
+		comments: [],
+		date: '1 hour ago',
+		id: '234',
+		link: 'post234'
+	} //mock, will be deleted after client setup
+
 	return (
 		<Container className='container-full-height mt-5'>
 			<Row className='h-100'>
 				<Col xs={9}>
-					{posts.map(post => <Post key={post.id} post={initPost(post)}/>)}
+					{/* {posts.map(post => <Post key={post.id} post={PostModel.init(post)} />)} */}
+					<Post post={PostModel.init(post1)} />
 				</Col>
 				<Col className='border-left'>2</Col>
 			</Row>
