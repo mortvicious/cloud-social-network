@@ -12,7 +12,6 @@ export interface IUserFriends {
 	friendRequestDecline: () => void
 	friendRequestSend: () => void
 	friendRemove: () => void
-
 }
 
 export interface IUserSettings {
