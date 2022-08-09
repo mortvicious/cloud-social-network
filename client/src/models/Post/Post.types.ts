@@ -16,3 +16,6 @@ export interface IPostUserModel {
 	date?: string
 }
 
+export interface INewPost {
+	
+}
