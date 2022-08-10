@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Post from '../components/Post/Post'
 import { PostModel } from '../models/Post/PostModel'
 import { IPostModel } from '../models/Post/Post.types'
+import FeedCreatePost from '../components/Feed/FeedCreatePost'
 
 
 
@@ -30,9 +31,25 @@ const AppPage: FC = () => {
 	return (
 		<Container className='container-full-height mt-5'>
 			<Row className='h-100'>
-				<Col xs={9}>
-					{posts.map(post => <Post key={post.id} post={PostModel.init(post)} />)}
-					<Post post={PostModel.init(post1) /* mock, will be deleted after server setup */} /> 
+				<Col className='d-flex flex-column gap-4' xs={9}>
+					<FeedCreatePost />
+					{posts.map((post) => (
+						<Post key={post.id} post={PostModel.init(post)} />
+					))}
+					<Post
+						post={
+							PostModel.init(
+								post1
+							) /* mock, will be deleted after server setup */
+						}
+					/>
+					<Post
+						post={
+							PostModel.init(
+								post1
+							)
+						}
+					/>
 				</Col>
 				<Col className='border-left'>2</Col>
 			</Row>

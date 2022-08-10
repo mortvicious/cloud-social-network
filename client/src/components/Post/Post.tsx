@@ -36,7 +36,7 @@ const Post: FC<IPost> = ({ post }) => {
 				</Row>
 				<p>{post.content}</p>
 			</Container>
-			<Container className='d-flex gap-5'>
+			<Container className='d-flex gap-5 mt-3'>
 				<PostFunctionBtn
 					onClick={handleLikeBtn}
 					icon='bi bi-hand-thumbs-up'
