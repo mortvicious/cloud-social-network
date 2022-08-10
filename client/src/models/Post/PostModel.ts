@@ -31,7 +31,7 @@ export class PostModel implements IPostModel {
 	static init(post: IPostModel) {
 		const { author, content, likes, comments, date, id, link } = post
 		return new PostModel(
-			new PostUserModel(author.username, author.id, author.avatar, author.link),
+			PostUserModel.init(author),
 			content,
 			likes,
 			comments,

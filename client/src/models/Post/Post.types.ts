@@ -15,7 +15,3 @@ export interface IPostUserModel {
 	id: string
 	date?: string
 }
-
-export interface INewPost {
-	
-}

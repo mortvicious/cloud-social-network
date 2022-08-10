@@ -3,6 +3,7 @@ export interface IUser {
 	username: string
 	id: string
 	link: string
+	avatar: string
 }
 
 export interface IUserFriends {

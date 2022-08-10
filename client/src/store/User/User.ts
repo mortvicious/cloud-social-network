@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx'
-import axios from 'axios'
 import { IUser } from './User.types'
 
 class User implements IUser {
@@ -7,6 +6,7 @@ class User implements IUser {
 	username: string = ''
 	link: string = ''
 	id: string = ''
+	avatar: string = ''
 
 	constructor() {
 		makeAutoObservable(this)
@@ -15,6 +15,7 @@ class User implements IUser {
 	setAuth(status: boolean) {
 		this.isAuth = status
 	}
+
 }
 
 export default new User()

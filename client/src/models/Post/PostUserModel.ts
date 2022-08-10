@@ -11,4 +11,8 @@ export class PostUserModel implements IPostUserModel {
 		this.avatar = avatar
 		this.link = link
 	}
+
+	static init(author: IPostUserModel) {
+		return new PostUserModel(author.username, author.id, author.avatar, author.link)
+	}
 }

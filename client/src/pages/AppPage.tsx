@@ -25,14 +25,14 @@ const AppPage: FC = () => {
 		date: '1 hour ago',
 		id: '234',
 		link: 'post234'
-	} //mock, will be deleted after client setup
+	} //mock, will be deleted after server setup
 
 	return (
 		<Container className='container-full-height mt-5'>
 			<Row className='h-100'>
 				<Col xs={9}>
-					{/* {posts.map(post => <Post key={post.id} post={PostModel.init(post)} />)} */}
-					<Post post={PostModel.init(post1)} />
+					{posts.map(post => <Post key={post.id} post={PostModel.init(post)} />)}
+					<Post post={PostModel.init(post1) /* mock, will be deleted after server setup */} /> 
 				</Col>
 				<Col className='border-left'>2</Col>
 			</Row>

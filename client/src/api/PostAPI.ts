@@ -1,5 +1,5 @@
 import axios from "axios";
-import { INewPost } from "../models/Post/Post.types";
+import { INewPost } from "../store/NewPost/NewPost.types";
 
 enum Routes {
     ADD = '/api/post/add',
@@ -19,7 +19,7 @@ export class PostAPI {
                             data
             })
             return res
-        } catch (e) {
+        } catch (e: any) {
             throw new Error(e)
         }
      }
@@ -29,5 +29,4 @@ export class PostAPI {
     static async comment() { }
     static async share() { }
     static async flagAsInappropriate() { }
-    static async fetchPostUserData() { }
 }
