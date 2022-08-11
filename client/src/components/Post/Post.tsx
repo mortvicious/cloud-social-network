@@ -54,7 +54,7 @@ const Post: FC<IPost> = ({ post }) => {
 				/>
 			</Container>
 			<Container>
-				<PostCommentForm />
+				<PostCommentForm postID={post.id} />
 			</Container>
 		</Card>
 	)
