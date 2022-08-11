@@ -2,20 +2,18 @@ import React, { FC, ReactEventHandler, useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import NavElement from './NavElement'
-import NotificationBell from './NotificationBell'
-import Search from './Search'
+import NavElementComponent from './NavElementComponent'
+import NotificationBellComponent from './NotificationBellComponent'
+import SearchComponent from './SearchComponent'
 import user from '../../store/User/User'
 
-const Navigation: FC = () => {
+const NavigationComponent: FC = () => {
 	const [activeLink, setActiveLink] = useState<string>('Home')
 	const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
 		const title = e.currentTarget.title
 		setActiveLink(title)
 	}
-	const handleNotificationClick = () => {
-
-	}
+	const handleNotificationClick = () => {}
 	const DEBUG_LOGOUT = () => {
 		user.setAuth(false)
 	}
@@ -26,7 +24,7 @@ const Navigation: FC = () => {
 					<strong>Cloud</strong>
 				</Navbar.Brand>
 				<Nav className='d-flex text-primary ml-1 gap-3 align-items-center'>
-					<NavElement
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='Home'
 						icon='bi bi-house-fill text-body text-black-50 i-size-25'
@@ -34,7 +32,7 @@ const Navigation: FC = () => {
 						to='/'
 						active={activeLink === 'Home'}
 					/>
-					<NavElement
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='Friends'
 						icon='bi bi-person-hearts text-body text-black-50 i-size-25'
@@ -42,7 +40,7 @@ const Navigation: FC = () => {
 						to='/friends'
 						active={activeLink === 'Friends'}
 					/>
-					<NavElement
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='Communities'
 						icon='bi bi-people-fill text-black-50 i-size-25'
@@ -50,7 +48,7 @@ const Navigation: FC = () => {
 						to='/communities'
 						active={activeLink === 'Communities'}
 					/>
-					<NavElement
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='Messenger'
 						icon='bi bi-chat-dots-fill text-black-50 i-size-25'
@@ -60,9 +58,9 @@ const Navigation: FC = () => {
 					/>
 				</Nav>
 				<Nav className='d-flex text-primary gap-3 ml-1 align-items-center'>
-					<Search />
-					<NotificationBell onClick={ handleNotificationClick } />
-					<NavElement
+					<SearchComponent />
+					<NotificationBellComponent onClick={handleNotificationClick} />
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='Settings'
 						icon='bi bi-gear-wide text-black-50 i-size-25'
@@ -70,7 +68,7 @@ const Navigation: FC = () => {
 						to='/settings'
 						active={activeLink === 'Settings'}
 					/>
-					<NavElement
+					<NavElementComponent
 						// className='d-flex align-items-center'
 						title='User'
 						icon='bi bi-person-fill text-black-50 i-size-25'
@@ -84,4 +82,4 @@ const Navigation: FC = () => {
 	)
 }
 
-export default Navigation
+export default NavigationComponent

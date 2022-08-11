@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
-interface INotificationBell {
-    onClick: () => void
+interface INotificationBellComponent {
+	onClick: () => void
 }
 
-const NotificationBell: FC<INotificationBell> = ({onClick}) => {
-  return (
+const NotificationBellComponent: FC<INotificationBellComponent> = ({ onClick }) => {
+	return (
 		<div
 			className='d-flex align-items-center'
 			data-toggle='tooltip'
@@ -18,4 +18,4 @@ const NotificationBell: FC<INotificationBell> = ({onClick}) => {
 	)
 }
 
-export default NotificationBell
+export default NotificationBellComponent

@@ -96,11 +96,15 @@ h1,h2,h3,h4,h5,h6 {
 
 .search-icon {
   & > * {font-size: 20px;}
-  &:hover > * {
-    color: #1266F1 !important;
-  }
 }
 
+.hover-icon {
+  transition: all 0.2s ease-in-out;
+    &:hover > * {
+    color: #1266F1 !important;
+    transition: all 0.2s ease-in-out;
+  }
+}
 
 .nav-icon:hover {
   color: #1266F1 !important;

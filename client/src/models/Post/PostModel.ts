@@ -1,8 +1,9 @@
-import { IPostModel, IPostUserModel } from './Post.types'
-import { PostUserModel } from './PostUserModel'
+import { IPostModel } from './Post.types'
+import { IUserMinifiedModel } from '../User/User.types'
+import { UserMinifiedModel } from '../User/UserMinifiedModel'
 
 export class PostModel implements IPostModel {
-	author!: IPostUserModel
+	author!: IUserMinifiedModel
 	content = ''
 	likes!: []
 	comments!: []
@@ -12,7 +13,7 @@ export class PostModel implements IPostModel {
 	link = ''
 
 	constructor(
-		author: IPostUserModel,
+		author: IUserMinifiedModel,
 		content: string,
 		likes: [],
 		comments: [],
@@ -34,14 +35,14 @@ export class PostModel implements IPostModel {
 	static init(post: IPostModel) {
 		const { author, content, likes, comments, date, id, link, shares } = post
 		return new PostModel(
-			PostUserModel.init(author),
+			UserMinifiedModel.init(author),
 			content,
 			likes,
 			comments,
 			shares,
 			date,
 			id,
-			link,
+			link
 		)
 	}
 }

@@ -1,13 +1,18 @@
 import React, { FC } from 'react'
 
-interface IPostFunctionBtn {
+interface IPostFunctionBtnComponent {
 	icon: string
 	content: string
 	title: string
-    onClick: () => void
+	onClick: () => void
 }
 
-const PostFunctionBtn: FC<IPostFunctionBtn> = ({ icon, content, onClick, title }) => {
+const PostFunctionBtnComponent: FC<IPostFunctionBtnComponent> = ({
+	icon,
+	content,
+	onClick,
+	title,
+}) => {
 	return (
 		<button
 			data-toggle='tooltip'
@@ -23,4 +28,4 @@ const PostFunctionBtn: FC<IPostFunctionBtn> = ({ icon, content, onClick, title }
 	)
 }
 
-export default PostFunctionBtn
+export default PostFunctionBtnComponent

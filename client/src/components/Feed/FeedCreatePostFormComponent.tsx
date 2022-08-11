@@ -3,7 +3,7 @@ import newPostStore from '../../store/NewPost/NewPost'
 import PostAPI from '../../api/PostAPI'
 import { observer } from 'mobx-react-lite'
 
-const FeedCreatePostForm: FC = observer(() => {
+const FeedCreatePostFormComponent: FC = observer(() => {
 	const handleSendBtn = () => {
 		PostAPI.createPost(newPostStore.getData())
 	}
@@ -19,14 +19,14 @@ const FeedCreatePostForm: FC = observer(() => {
 			</h4>
 			<div className='input-group feed-create-post-container'>
 				<textarea
-					placeholder=''
+					placeholder='Share your thoughts with community'
 					className='form-control'
 					aria-label='With textarea'
 					onChange={handleChange}
 				></textarea>
 				<div className='feed-create-post-btn-container d-flex gap-2'>
 					<button
-						className='add-image-icon bg-white feed-add-img i-size-20'
+						className='add-image-icon bg-white feed-add-img i-size-20 hover-icon'
 						type='button'
 						id='button-addon2'
 						data-toggle='tooltip'
@@ -37,7 +37,7 @@ const FeedCreatePostForm: FC = observer(() => {
 					</button>
 					<button
 						onClick={handleSendBtn}
-						className='bg-white i-size-20 '
+						className='bg-white i-size-20 hover-icon'
 						type='button'
 						id='button-addon2'
 						data-toggle='tooltip'
@@ -52,4 +52,4 @@ const FeedCreatePostForm: FC = observer(() => {
 	)
 })
 
-export default FeedCreatePostForm
+export default FeedCreatePostFormComponent

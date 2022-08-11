@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-interface INavElement {
-	// className: string
+interface INavElementComponent {
 	title: string
 	icon: string
 	to: string
@@ -10,12 +9,18 @@ interface INavElement {
 	onClick: React.MouseEventHandler<HTMLDivElement>
 }
 
-const NavElement: FC<INavElement> = ({title, icon, to, active, onClick}) => {
-  return (
+const NavElementComponent: FC<INavElementComponent> = ({
+	title,
+	icon,
+	to,
+	active,
+	onClick,
+}) => {
+	return (
 		<NavLink to={to}>
 			<div
 				className={
-					'd-flex align-items-center' +
+					'd-flex align-items-center hover-icon' +
 					` ` +
 					(active
 						? 'border-bottom border-3 border-secondary nav-icon-container'
@@ -32,4 +37,4 @@ const NavElement: FC<INavElement> = ({title, icon, to, active, onClick}) => {
 	)
 }
 
-export default NavElement
+export default NavElementComponent

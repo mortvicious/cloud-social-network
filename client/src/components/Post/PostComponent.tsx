@@ -2,27 +2,26 @@ import React, { FC } from 'react'
 import { Card, Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import PostUser from './PostUser'
-import PostFunctionBtn from './PostFunctionBtn'
-import PostCommentForm from './PostCommentForm'
+import UserMinifiedComponent from '../UserMinified/UserMinifiedComponent'
+import PostFunctionBtnComponent from './PostFunctionBtnComponent'
+import PostCommentFormComponent from './PostCommentFormComponent'
 import { IPostModel } from '../../models/Post/Post.types'
-import newCommentStore from '../../store/NewComment/NewComment'
 
-interface IPost {
+interface IPostComponent {
 	post: IPostModel
 }
 
-const Post: FC<IPost> = ({ post }) => {
+const PostComponent: FC<IPostComponent> = ({ post }) => {
 	const handleLikeBtn = () => {}
 	const handleCommentBtn = () => {}
-	const handleShareBtn = () => { }
+	const handleShareBtn = () => {}
 	const author = post.author
 	return (
 		<Card className='p-3'>
 			<Container className='d-flex flex-column gap-3 justify-content-between'>
 				<Row className='align-items-center'>
 					<Col className='container-fluid' xs={11}>
-						<PostUser
+						<UserMinifiedComponent
 							link={author.link}
 							avatar={author.avatar}
 							id={author.id}
@@ -38,19 +37,19 @@ const Post: FC<IPost> = ({ post }) => {
 				<p>{post.content}</p>
 			</Container>
 			<Container className='d-flex gap-5 mt-3'>
-				<PostFunctionBtn
+				<PostFunctionBtnComponent
 					onClick={handleLikeBtn}
 					icon='bi bi-hand-thumbs-up'
 					content='Like'
 					title={`${post.likes.length} likes`}
 				/>
-				<PostFunctionBtn
+				<PostFunctionBtnComponent
 					onClick={handleCommentBtn}
 					icon='bi bi-chat-left'
 					content='Comment'
 					title={`${post.comments.length} comments`}
 				/>
-				<PostFunctionBtn
+				<PostFunctionBtnComponent
 					onClick={handleShareBtn}
 					icon='bi bi-arrow-return-right'
 					content='Share'
@@ -58,10 +57,10 @@ const Post: FC<IPost> = ({ post }) => {
 				/>
 			</Container>
 			<Container>
-				<PostCommentForm postID={post.id} />
+				<PostCommentFormComponent postID={post.id} />
 			</Container>
 		</Card>
 	)
 }
 
-export default Post
+export default PostComponent
