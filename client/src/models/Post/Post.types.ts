@@ -3,6 +3,7 @@ export interface IPostModel {
 	author: IPostUserModel
 	likes: []
 	comments: []
+	shares: []
 	date: string
 	link: string
 	id: string

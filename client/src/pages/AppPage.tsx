@@ -5,10 +5,9 @@ import Col from 'react-bootstrap/Col'
 import Post from '../components/Post/Post'
 import { PostModel } from '../models/Post/PostModel'
 import { IPostModel } from '../models/Post/Post.types'
-import FeedCreatePost from '../components/Feed/FeedCreatePost'
+import FeedCreatePostForm from '../components/Feed/FeedCreatePostForm'
 
 const AppPage: FC = () => {
-
 	const [posts, setPosts] = useState<IPostModel[]>([])
 
 	const mockPosts: IPostModel[] = [
@@ -23,6 +22,7 @@ const AppPage: FC = () => {
 			content: 'I am Antonio Margaretti!',
 			likes: [],
 			comments: [],
+			shares: [],
 			date: '1 hour ago',
 			id: '234',
 			link: 'post234',
@@ -37,6 +37,7 @@ const AppPage: FC = () => {
 			content: 'Yo guyz',
 			likes: [],
 			comments: [],
+			shares: [],
 			date: '1 hour ago',
 			id: '15345',
 			link: 'post234sdfg',
@@ -55,7 +56,7 @@ const AppPage: FC = () => {
 		<Container className='container-full-height mt-5'>
 			<Row className='h-100'>
 				<Col className='d-flex flex-column gap-4' xs={9}>
-					<FeedCreatePost />
+					<FeedCreatePostForm />
 					{posts.map((post) => (
 						<Post key={post.id} post={PostModel.init(post)} />
 					))}

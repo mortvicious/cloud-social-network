@@ -158,8 +158,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .add-image-icon {
   background-color: white !important;
-  border-top: 1px solid #ced4da !important;
-  border-bottom: 1px solid #ced4da !important;
+  // border-top: 1px solid #ced4da !important;
+  // border-bottom: 1px solid #ced4da !important;
 }
 
 textarea {
@@ -168,4 +168,18 @@ textarea {
   &:hover {
     resize: vertical !important;
   }
+}
+
+.feed-create-post-container {
+  position: relative !important;
+}
+
+.feed-create-post-btn {
+  background-color: white;
+}
+
+.feed-create-post-btn-container {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }

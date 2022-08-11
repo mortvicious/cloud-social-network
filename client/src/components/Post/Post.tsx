@@ -42,23 +42,25 @@ const Post: FC<IPost> = ({ post }) => {
 					onClick={handleLikeBtn}
 					icon='bi bi-hand-thumbs-up'
 					content='Like'
+					title={`${post.likes.length} likes`}
 				/>
 				<PostFunctionBtn
 					onClick={handleCommentBtn}
 					icon='bi bi-chat-left'
 					content='Comment'
+					title={`${post.comments.length} comments`}
 				/>
 				<PostFunctionBtn
 					onClick={handleShareBtn}
 					icon='bi bi-arrow-return-right'
 					content='Share'
+					title={`${post.shares.length} shares`}
 				/>
 			</Container>
 			<Container>
 				<PostCommentForm postID={post.id} />
 			</Container>
 		</Card>
-		
 	)
 }
 

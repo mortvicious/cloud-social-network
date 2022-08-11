@@ -6,6 +6,7 @@ export class PostModel implements IPostModel {
 	content = ''
 	likes!: []
 	comments!: []
+	shares!: []
 	date = ''
 	id = ''
 	link = ''
@@ -15,6 +16,7 @@ export class PostModel implements IPostModel {
 		content: string,
 		likes: [],
 		comments: [],
+		shares: [],
 		date: string,
 		id: string,
 		link: string
@@ -26,17 +28,20 @@ export class PostModel implements IPostModel {
 		this.date = date
 		this.id = id
 		this.link = link
+		this.shares = shares
 	}
 
 	static init(post: IPostModel) {
-		const { author, content, likes, comments, date, id, link } = post
+		const { author, content, likes, comments, date, id, link, shares } = post
 		return new PostModel(
 			PostUserModel.init(author),
 			content,
 			likes,
 			comments,
+			shares,
 			date,
 			id,
-			link
-	)}
+			link,
+		)
+	}
 }

@@ -29,6 +29,9 @@ const PostCommentForm: FC<IPostCommentForm> = observer(({ postID }) => {
 				className='btn btn-add-comment'
 				type='button'
 				id='button-addon2'
+				data-toggle='tooltip'
+				data-placement='top'
+				title='Add comment'
 			>
 				<i className='bi bi-send-fill text-primary'></i>
 			</button>
