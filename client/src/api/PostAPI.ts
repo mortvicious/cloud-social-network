@@ -6,7 +6,6 @@ enum Routes {
 	REMOVE = '/api/post/remove',
 	EDIT = '',
 	LIKE = '',
-	COMMENT = '',
 	SHARE = '',
 	FLAG_AS_INAPPROPRIATE = '',
 	FETCH_POST_USER_DATA = '',
@@ -26,7 +25,6 @@ class PostAPI {
 	static async remove() {}
 	static async edit() {}
 	static async like() {}
-	static async comment() {}
 	static async share() {}
 	static async flagAsInappropriate() {}
 }
