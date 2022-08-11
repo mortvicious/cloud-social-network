@@ -6,6 +6,7 @@ import PostUser from './PostUser'
 import PostFunctionBtn from './PostFunctionBtn'
 import PostCommentForm from './PostCommentForm'
 import { IPostModel } from '../../models/Post/Post.types'
+import newCommentStore from '../../store/NewComment/NewComment'
 
 interface IPost {
 	post: IPostModel
@@ -14,7 +15,7 @@ interface IPost {
 const Post: FC<IPost> = ({ post }) => {
 	const handleLikeBtn = () => {}
 	const handleCommentBtn = () => {}
-	const handleShareBtn = () => {}
+	const handleShareBtn = () => { }
 	const author = post.author
 	return (
 		<Card className='p-3'>
@@ -57,6 +58,7 @@ const Post: FC<IPost> = ({ post }) => {
 				<PostCommentForm postID={post.id} />
 			</Container>
 		</Card>
+		
 	)
 }
 

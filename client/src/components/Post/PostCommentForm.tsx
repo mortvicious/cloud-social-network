@@ -9,18 +9,19 @@ interface IPostCommentForm {
 
 const PostCommentForm: FC<IPostCommentForm> = observer(({ postID }) => {
 	const handleSendBtn = () => {
-		CommentAPI.addComment(newCommentStore.getData())
+		CommentAPI.addComment(newCommentStore.getData(), postID)
 	}
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		newCommentStore.setComment(postID, e.currentTarget.value)
+		newCommentStore.setContent(e.currentTarget.value)
 	}
+
 	return (
 		<div className='input-group mt-4'>
 			<input
-				placeholder='Share your thoughts!'
+				placeholder='What do you think?'
 				className='form-control bg-light'
 				aria-label='With textarea'
-				value={newCommentStore.content}
 				onChange={handleChange}
 			></input>
 			<button
