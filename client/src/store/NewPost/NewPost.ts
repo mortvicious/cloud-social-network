@@ -3,7 +3,8 @@ import { INewPost } from './NewPost.types'
 import user from '../User/User'
 
 class NewPost implements INewPost {
-	author = user.id
+
+	readonly authorID = user.id
 	content = ''
 
 	constructor() {
@@ -12,6 +13,13 @@ class NewPost implements INewPost {
 
 	setContent(content: string) {
 		this.content = content
+	}
+
+	getData() {
+		return {
+			authorID: this.authorID,
+			content: this.content,
+		}
 	}
 }
 

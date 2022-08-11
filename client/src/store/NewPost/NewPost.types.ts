@@ -1,4 +1,4 @@
 export interface INewPost {
-    author: string
-    content: string
+	authorID: string
+	content: string
 }

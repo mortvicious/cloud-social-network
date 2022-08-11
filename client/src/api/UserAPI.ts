@@ -1,4 +1,6 @@
-export class UserAPI {
+class UserAPI {
     static async changeSettings() { }
     
 }
+
+export default UserAPI

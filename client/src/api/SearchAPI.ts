@@ -1,3 +1,5 @@
-export class SearchAPI {
+class SearchAPI {
 	
 }
+
+export default SearchAPI

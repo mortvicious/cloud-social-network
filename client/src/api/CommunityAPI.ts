@@ -1,4 +1,4 @@
-export class CommunityAPI {
+class CommunityAPI {
 	static async create() {}
 	static async edit() {}
 	static async delete() {}
@@ -9,3 +9,5 @@ export class CommunityAPI {
 	static async inviteUser() {}
 	static async deleteUser() {}
 }
+
+export default CommunityAPI

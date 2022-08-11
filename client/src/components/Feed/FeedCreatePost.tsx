@@ -1,11 +1,18 @@
 import React, { FC } from 'react'
 import newPostStore from '../../store/NewPost/NewPost'
-import {observer} from 'mobx-react-lite'
+import PostAPI from '../../api/PostAPI'
+import { observer } from 'mobx-react-lite'
+
 const FeedCreatePost: FC = observer(() => {
-	const handleSendBtn = (e: React.MouseEvent<HTMLButtonElement>) => {}
-	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		newPostStore.setContent(e.currentTarget.value)		
+
+	const handleSendBtn = () => {
+		PostAPI.createPost(newPostStore.getData())
 	}
+
+	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		newPostStore.setContent(e.currentTarget.value)
+	}
+	
 	return (
 		<div className='input-group'>
 			<textarea
