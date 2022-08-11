@@ -26,7 +26,7 @@ const FeedCreatePostForm: FC = observer(() => {
 				></textarea>
 				<div className='feed-create-post-btn-container d-flex gap-2'>
 					<button
-						className='add-image-icon feed-create-post-btn feed-add-img i-size-20'
+						className='add-image-icon bg-white feed-add-img i-size-20'
 						type='button'
 						id='button-addon2'
 						data-toggle='tooltip'
@@ -37,7 +37,7 @@ const FeedCreatePostForm: FC = observer(() => {
 					</button>
 					<button
 						onClick={handleSendBtn}
-						className='feed-create-post-btn i-size-20 '
+						className='bg-white i-size-20 '
 						type='button'
 						id='button-addon2'
 						data-toggle='tooltip'
