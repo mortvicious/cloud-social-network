@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Card, Container } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import UserMinifiedComponent from '../UserMinified/UserMinifiedComponent'
+import UserCoreComponent from '../UserCore/UserCoreComponent'
 import PostFunctionBtnComponent from './PostFunctionBtnComponent'
 import PostCommentFormComponent from './PostCommentFormComponent'
 import { IPostModel } from '../../models/Post/Post.types'
@@ -21,7 +21,7 @@ const PostComponent: FC<IPostComponent> = ({ post }) => {
 			<Container className='d-flex flex-column gap-3 justify-content-between'>
 				<Row className='align-items-center'>
 					<Col className='container-fluid' xs={11}>
-						<UserMinifiedComponent
+						<UserCoreComponent
 							link={author.link}
 							avatar={author.avatar}
 							id={author.id}

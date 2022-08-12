@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import { IUserCoreModel } from '../../models/User/User.types'
 
-const UserMinifiedComponent: FC<IUserCoreModel> = ({
+const UserCoreComponent: FC<IUserCoreModel> = ({
 	avatar,
 	username,
 	link,
@@ -20,4 +20,4 @@ const UserMinifiedComponent: FC<IUserCoreModel> = ({
 	)
 }
 
-export default UserMinifiedComponent
+export default UserCoreComponent
