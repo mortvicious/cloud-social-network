@@ -13,7 +13,7 @@ export class UserCoreModel implements IUserCoreModel {
 		this.link = link
 	}
 
-	static init(user: IUserCoreModel) {
+	static init(user: IUserCoreModel): IUserCoreModel {
 		return new UserCoreModel(user.username, user.id, user.avatar, user.link)
 	}
 }
