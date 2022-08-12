@@ -1,8 +1,8 @@
-import { IUserMinifiedModel } from '../User/User.types'
+import { IUserCoreModel } from '../User/User.types'
 
 export interface IPostModel {
 	content: string
-	author: IUserMinifiedModel
+	author: IUserCoreModel
 	likes: []
 	comments: []
 	shares: []

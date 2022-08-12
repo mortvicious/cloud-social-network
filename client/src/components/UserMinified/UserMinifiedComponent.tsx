@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import { IUserMinifiedModel } from '../../models/User/User.types'
+import { IUserCoreModel } from '../../models/User/User.types'
 
-const UserMinifiedComponent: FC<IUserMinifiedModel> = ({
+const UserMinifiedComponent: FC<IUserCoreModel> = ({
 	avatar,
 	username,
 	link,

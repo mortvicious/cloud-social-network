@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Logo from '../components/LogoComponent'
+import Logo from '../components/Logo/LogoComponent'
 import NavigationUnauthorizedComponent from '../components/Navigation/NavigationUnauthorizedComponent'
 import NavigationComponent from '../components/Navigation/NavigationComponent'
 import { useLocation } from 'react-router'

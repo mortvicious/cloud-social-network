@@ -1,4 +1,4 @@
-import { IUserMinifiedModel } from './../User/User.types';
+import { IUserCoreModel } from './../User/User.types'
 export interface IFriendsOnlineBlockModel {
-    friends: IUserMinifiedModel[]
+	friends: IUserCoreModel[]
 }

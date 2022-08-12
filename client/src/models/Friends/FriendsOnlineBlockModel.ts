@@ -1,11 +1,8 @@
-import { IUserMinifiedModel } from "../User/User.types";
-import { IFriendsOnlineBlockModel } from "./Friends.types";
+import { IUserCoreModel } from '../User/User.types'
+import { IFriendsOnlineBlockModel } from './Friends.types'
 
 export class FriendsOnlineBlockModel implements IFriendsOnlineBlockModel {
+	friends!: IUserCoreModel[]
 
-    friends!: IUserMinifiedModel[]
-
-    constructor() {
-        
-    }
+	constructor() {}
 }
