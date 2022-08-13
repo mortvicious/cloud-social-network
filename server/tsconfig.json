@@ -41,7 +41,7 @@
     },
     "include": [
       "src"
-    ],
+, "src/loaders/.env.ts"    ],
     "exclude": [
       "dist"
     ]
