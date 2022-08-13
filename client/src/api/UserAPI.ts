@@ -12,7 +12,10 @@ class UserAPI {
 		} catch (e: any) {
 			throw new Error(e)
 		}
-	}
+    }
+    static async getUserFeedPosts(userID: string) {
+        
+    }
 }
 
 export default UserAPI
