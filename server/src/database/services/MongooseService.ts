@@ -10,17 +10,23 @@ export class MongooseService {
 			this.db.on('error', console.error.bind(console.error, 'Error MongoDB'))
 		})
 	}
-	private static determineConnection() {
-		if (mongoose.connection.readyState === 0) {
-			console.log(`MongoDB Status: Disconnected`)
-		} else if (mongoose.connection.readyState === 2) {
-			console.log(`MongoDB Status: Connecting`)
-		} else if (mongoose.connection.readyState === 1) {
-			console.log(`MongoDB Status: Connected`)
-		} else if (mongoose.connection.readyState === 3) {
-			console.log(`MongoDB Status: Disconnecting`)
-		} else {
-			console.log(`MongoDB Status: Wrong Credentials`)
+	private static determineConnection(): void {
+		switch (mongoose.connection.readyState) {
+			case 0:
+				console.log(`MongoDB Status: Disconnected`)
+				break
+			case 1:
+				console.log(`MongoDB Status: Connected`)
+				break
+			case 2:
+				console.log(`MongoDB Status: Connecting`)
+				break
+			case 3:
+				console.log(`MongoDB Status: Disconnecting`)
+				break
+			default:
+				console.log(`MongoDB Status: Wrong Credentials`)
+				break
 		}
 	}
 }
