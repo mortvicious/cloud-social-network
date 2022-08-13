@@ -18,7 +18,7 @@ const UserPageTabBtnComponent: FC<IUserPageTabBtnComponent> = ({
 				id={id}
 				type='button'
 				className={
-					'btn-outline-muted bg-light btn-lg p-2 pt-0 i-size-20 border-bottom border-3 border-light' +
+					'btn-outline-muted bg-light btn-lg p-2 i-size-20 border-bottom border-3 border-light' +
 					(active ? 'border-bottom border-3 border-secondary' : '')
 				}
 			>

@@ -13,9 +13,10 @@ const UserCoreComponent: FC<IUserCoreModel> = ({
 		<NavLink
 			className='d-flex gap-3 text-primary text-decoration-none align-items-center username'
 			to={`user:${link}`}
-			state={{id: id}}
+			state={{ id: id }}
 		>
-			<i className='bi bi-person border rounded mock-avatar'></i>
+			{/* <i className='bi bi-person border rounded mock-avatar'></i> */}
+			<div className='user-core-avatar'><img className='img-fluid' src='/avatars/5jfk5jgsk5nfsc3.jpg' alt='' /></div>
 			<strong>{username}</strong>
 		</NavLink>
 	)

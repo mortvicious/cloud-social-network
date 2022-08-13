@@ -5,6 +5,7 @@ import { useLocation } from 'react-router'
 import UserAPI from '../api/UserAPI'
 import FeedComponent from '../components/Feed/FeedComponent'
 import UserPageTabBtnComponent from '../components/User/UserPageTabBtnComponent'
+import UserPageTabComponent from '../components/User/UserPageTabComponent'
 import { IUserPageModel } from '../models/User/User.types'
 import userPageStore from '../store/User/UserPage'
 
@@ -89,7 +90,8 @@ const IDUserPage: FC = observer(() => {
 			</Row>
 			<Row className='mt-4'>
 				<Col className='d-flex flex-column gap-4'>
-					<FeedComponent userID='dfgdg' />
+					{/* <FeedComponent userID={state.id} /> */}
+					<UserPageTabComponent type={activeTab} userID={state.id}/>
 				</Col>
 			</Row>
 		</Container>
