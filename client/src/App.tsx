@@ -5,7 +5,7 @@ import user from './store/User/User'
 
 function App() {
 	useEffect(() => {
-		user.setAuth(true) //debug
+		// user.setAuth(true) //debug
 	}, [])
 	return (
 		<div className='app bg-light'>
