@@ -184,6 +184,14 @@ textarea {
 
 .feed-create-post-btn-container {
   position: absolute;
-  right: 5px;
+  right: 10px;
   bottom: 5px;
+}
+
+.avatar-container {
+  aspect-ratio: 1/1;
+  width: 300px;
+  border-radius: 50% !important;
+  overflow: hidden;
+
 }

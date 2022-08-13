@@ -13,6 +13,7 @@ const UserCoreComponent: FC<IUserCoreModel> = ({
 		<NavLink
 			className='d-flex gap-3 text-primary text-decoration-none align-items-center username'
 			to={`user:${link}`}
+			state={{id: id}}
 		>
 			<i className='bi bi-person border rounded mock-avatar'></i>
 			<strong>{username}</strong>
