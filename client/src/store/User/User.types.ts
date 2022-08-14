@@ -19,11 +19,9 @@ export interface IUserSettings {
 
 }
 
-export interface IUserAuth {
-	login: () => void
-	logout: () => void
-	registration: () => void
-	setToken: () => void
-	authenticate: () => void
-	setError: () => void
+export interface IUserToRegister {
+	email: string
+	username: string
+	password: string
+	link: string
 }

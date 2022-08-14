@@ -1,34 +1,71 @@
 import { makeAutoObservable } from 'mobx'
-import axios from 'axios'
-import { IUserAuth } from './User.types'
+import { IUserRegister } from '../../models/User/User.types'
+import { IUserToRegister } from './User.types'
 
-interface IErrors {
-	registration: string
-	email: string
-	password: string
-	passwordMatch: string
-	uniqueLink: string
-}
-
-class UserAuth implements IUserAuth {
-	errors: IErrors = {
-		registration: '',
-		email: '',
-		password: '',
-		passwordMatch: '',
-		uniqueLink: '',
-	}
+class UserAuth implements IUserRegister {
+	email = ''
+	password = ''
+	repeatPassword = ''
+	username = ''
+	link = ''
 
 	constructor() {
 		makeAutoObservable(this)
 	}
 
-	login() {}
-	logout() {}
-	registration() {}
-	setToken() {}
-	authenticate() {}
-	setError() {}
+	setEmail(email: string) {
+		this.email = email
+	}
+	setPassword(password: string) {
+		this.password = password
+	}
+	setRepeatPassword(password: string) {
+		this.repeatPassword = password
+	}
+	setUsername(username: string) {
+		this.username = username
+	}
+	setLink(link: string) {
+		this.link = link
+	}
+	setUserParams(id: string, data: string) {
+		switch (id) {
+			case 'formBasicEmail':
+				this.setEmail(data)
+				break
+			case 'formBasicPassword':
+				this.setPassword(data)
+				break
+			case 'formBasicRepeatPassword':
+				this.setRepeatPassword(data)
+				break
+			case 'formBasicUsername':
+				this.setUsername(data)
+				break
+			case 'formBasicLink':
+				this.setLink(data)
+				break
+			default:
+				break
+		}
+	}
+	getUserToValidate(): IUserRegister {
+		return {
+			email: this.email,
+			password: this.password,
+			repeatPassword: this.repeatPassword,
+			username: this.username,
+			link: this.link,
+		}
+	}
+	getUserToRegistration(): IUserToRegister {
+		return {
+			email: this.email,
+			password: this.password,
+			username: this.username,
+			link: this.link
+		}
+	}
 }
 
 export default new UserAuth()
