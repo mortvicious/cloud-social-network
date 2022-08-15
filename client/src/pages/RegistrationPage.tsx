@@ -11,7 +11,6 @@ import { ErrorHandler } from '../helpers/ErrorHandler'
 
 const RegistrationPage: FC = observer(() => {
 	const [isLoading, setLoading] = useState<boolean>(false)
-
 	const [errors, setErrors] = useState<string[]>([])
 
 	const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -29,7 +28,7 @@ const RegistrationPage: FC = observer(() => {
 		const { value, id } = e.currentTarget
 		userAuthStore.setUserParams(id, value)
 	}
-	
+
 	useEffect(() => {}, [errors])
 
 	return (
