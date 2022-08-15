@@ -2,7 +2,6 @@
 
 import './loaders/.env'
 import express, { Express } from "express"
-// import {connection} from 'mongoose'
 import cors from 'cors'
 import path from 'path'
 import { MongooseService } from './database/services/MongooseService'
