@@ -12,7 +12,7 @@ export class ErrorHandler {
         return this.errors
     }
 
-    public static setErrorsToWarnings(errors: number[] | undefined) {
+    public static setErrorsToWarnings(errors: number[]) {
         this.resetErrors()
         errors?.map((error) => {
             switch (error) {

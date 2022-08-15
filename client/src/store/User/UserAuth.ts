@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { IUserRegister } from '../../models/User/User.types'
+import { IUserLogin, IUserRegister } from '../../models/User/User.types'
 import { IUserToRegister } from './User.types'
 
 class UserAuth implements IUserRegister {
@@ -64,6 +64,12 @@ class UserAuth implements IUserRegister {
 			password: this.password,
 			username: this.username,
 			link: this.link
+		}
+	}
+	getUserToLogin(): IUserLogin {
+		return {
+			email: this.email,
+			password: this.password
 		}
 	}
 }

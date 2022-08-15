@@ -1,14 +1,27 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { NavLink } from 'react-router-dom'
 import user from '../store/User/User'
+import AuthAPI from '../api/AuthAPI'
+import userAuthStore from '../store/User/UserAuth'
 
 const LoginPage: FC = () => {
-	const handleLoginBtn = () => {
-		user.setAuth(true)
+	const [errors, setErrors] = useState<string[]>([])
+
+	const [isLoading, setLoading] = useState<boolean>(false)
+
+	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault()
+		setLoading(true)
+		const res = await AuthAPI.login(userAuthStore.getUserToLogin())
+		setLoading(false)
+		user.setAuth(true) //debug
 	}
+
+	useEffect(() => {}, [errors])
+
 	return (
 		<div className='container p-3 px-5 d-flex flex-column '>
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
