@@ -1,10 +1,5 @@
 import { Schema, model, ObjectId, Document } from "mongoose";
 
-interface FriendRequests {
-    requestType: string,
-    id: ObjectId
-}
-
 interface IUser extends Document {
     email: string,
     username: string,
@@ -15,10 +10,24 @@ interface IUser extends Document {
     settings: object[],
     communities: ObjectId[],
     friends: ObjectId[],
-    friendRequests: object,
+    friendRequests: object[],
     registrationDate: Date,
     lastOnline: Date,
 }
+
+interface IFriendRequests extends Document {
+    from: ObjectId[]
+    to: ObjectId[]
+}
+
+const friendRequestsSchema = new Schema<IFriendRequests>({
+	from: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+	to: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+})
+
+const settingsSchema = new Schema({
+
+})
 
 const userSchema = new Schema<IUser>({
     email: { type: String, required: true, unique: true },
@@ -27,16 +36,13 @@ const userSchema = new Schema<IUser>({
     link: { type: String, required: true, unique: true },
     avatar: { type: String },
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
-    // settings: [{type: }]
+    settings: [{type: settingsSchema, default: []}],
     communities: [{ type: Schema.Types.ObjectId, ref: 'Community' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    friendRequests: {
-        type: Object,
-        default: {
-            from: [],
-            to: []
-        }
-    }
+    friendRequests: friendRequestsSchema,
+    registrationDate: { type: Date, default: Date.now() },
+    lastOnline: { type: Date }
 })
+
 
 export const User = model<IUser>('User', userSchema)
