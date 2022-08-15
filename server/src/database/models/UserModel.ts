@@ -8,7 +8,9 @@ interface IUser {
     avatar: string,
     posts: ObjectId[],
     settings: object[],
-
+    communities: object[],
+    registrationDate: Date,
+    lastOnline: Date,
 }
 
 const userSchema = new Schema<IUser>({
