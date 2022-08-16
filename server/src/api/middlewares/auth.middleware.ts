@@ -1,5 +1,5 @@
-import { IJwtPayloadId } from './../../interfaces/IGetUserAuthInfoReq';
-import { IGetUserAuthInfoRequest } from 'src/interfaces/IGetUserAuthInfoReq';
+import { IJwtPayloadId } from './../../interfaces/IGetUserAuthInfoReq'
+import { IGetUserAuthInfoRequest } from 'src/interfaces/IGetUserAuthInfoReq'
 import { NextFunction, Response } from 'express'
 import jwt from 'jsonwebtoken'
 
@@ -11,7 +11,10 @@ export = (req: IGetUserAuthInfoRequest, res: Response, next: NextFunction) => {
 		if (!token) {
 			res.status(401).json({ message: 'Auth error' })
 		}
-		const decoded: IJwtPayloadId | string = jwt.verify(token, process.env.SECRET_KEY) as IJwtPayloadId
+		const decoded: IJwtPayloadId | string = jwt.verify(
+			token,
+			process.env.SECRET_KEY
+		) as IJwtPayloadId
 		req.user = decoded
 		next()
 	} catch (e) {
