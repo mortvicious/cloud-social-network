@@ -5,6 +5,7 @@ import { User, IUser } from '../../database/models/UserModel'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { ValidationError, validationResult, Result } from 'express-validator'
+import { FileService } from '../services/FileService';
 
 export class AuthController {
 	static async registration(
@@ -50,7 +51,8 @@ export class AuthController {
 			})
 
 			await user.save()
-
+			FileService.createInitialDir(email)
+			
 			return res.status(200).send({ message: 'User was created' })
 		} catch (e) {
 			return res.status(500).send({ message: 'Server error' })
