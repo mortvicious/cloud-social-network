@@ -8,14 +8,13 @@ import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
 import Spinner from 'react-bootstrap/Spinner'
 import user from '../store/User/User'
-import axios from 'axios'
 
 const LoginPage: FC = observer(() => {
 	const [errors, setErrors] = useState<string[]>([])
 	const [isLoading, setLoading] = useState<boolean>(false)
 
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
-		// e.preventDefault()
+		e.preventDefault()
 		setLoading(true)
 		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
 		console.log(response)
