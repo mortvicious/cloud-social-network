@@ -15,10 +15,18 @@ const LoginPage: FC = observer(() => {
 
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
+
 		setLoading(true)
+
 		const res = await AuthAPI.login(userAuthStore.getUserToLogin())
 		setLoading(false)
-		user.setAuth(true) //debug
+		// user.setAuth(true) //debug
+	}
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { value, id } = e.currentTarget
+		userAuthStore.setUserParams(id, value)
+		console.log(userAuthStore.getUserToLogin())
 	}
 
 	useEffect(() => {}, [errors])
@@ -39,7 +47,11 @@ const LoginPage: FC = observer(() => {
 							<Form.Label className='text-primary'>
 								<strong>Email</strong>
 							</Form.Label>
-							<Form.Control type='email' placeholder='Enter email' />
+							<Form.Control
+								onChange={handleChange}
+								type='email'
+								placeholder='Enter email'
+							/>
 							<Form.Text className='text-muted'>
 								We'll never share your email with anyone else.
 							</Form.Text>
@@ -48,7 +60,11 @@ const LoginPage: FC = observer(() => {
 							<Form.Label className='text-primary'>
 								<strong>Password</strong>
 							</Form.Label>
-							<Form.Control type='password' placeholder='Enter password' />
+							<Form.Control
+								onChange={handleChange}
+								type='password'
+								placeholder='Enter password'
+							/>
 						</Form.Group>
 						<div className='d-flex align-items-center gap-4'>
 							<Button onClick={handleLoginBtn} variant='primary' type='button'>

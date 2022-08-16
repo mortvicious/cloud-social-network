@@ -7,6 +7,7 @@ class User implements IUser {
 	link: string = ''
 	id: string = ''
 	avatar: string = ''
+	token: string = ''
 
 	constructor() {
 		makeAutoObservable(this)
@@ -16,12 +17,17 @@ class User implements IUser {
 		this.isAuth = status
 	}
 
-	setUser(username: string, link: string, id: string, avatar: string) {
+	setUser(username: string, link: string, id: string) {
 		this.username = username
 		this.link = link
 		this.id = id
-		this.avatar = avatar
 	}
+
+	setToken(token: string) {
+		this.token = token
+	}
+
+	
 }
 
 export default new User()

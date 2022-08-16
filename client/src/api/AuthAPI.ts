@@ -1,10 +1,34 @@
 import { IUserLogin } from './../models/User/User.types'
 import { IUserToRegister } from './../store/User/User.types'
+import userStore from '../store/User/User'
 import axios from 'axios'
 
 class AuthAPI {
-	static async login(data: IUserLogin) {}
+	static async login(data: IUserLogin) {
+		const { email, password } = data
+		try {
+			const {data} = await axios.post(
+				'http://localhost:5000/api/auth/login',
+				{
+					email,
+					password,
+				}
+			)
+			userStore.setAuth(true)
+			userStore.setUser(
+				data.user.username,
+				data.user.link,
+				data.user.id
+			)
+			userStore.setToken(data.token)
+		} catch (e: any) {
+			const error = e.response.data.errors
+			return error
+		}
+	}
+
 	static async logout() {}
+
 	static async register(data: IUserToRegister) {
 		const { email, username, password, link } = data
 		console.log(data)
@@ -24,7 +48,9 @@ class AuthAPI {
 			return error
 		}
 	}
+
 	static async authenticate() {}
+
 	static async refreshToken() {}
 }
 

@@ -17,17 +17,22 @@ const RegistrationPage: FC = observer(() => {
 
 	const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
+
 		setSuccess(false)
 		setLoading(true)
-		const res: boolean = Validator.validateAll(
+
+		const result: boolean = Validator.validateAll(
 			userAuthStore.getUserToValidate()
 		)
+
 		setErrors(ErrorHandler.getErrors())
-		if (res === true) {
+
+		if (result === true) {
 			const response = await AuthAPI.register(userAuthStore.getUserToRegistration())
 			setLoading(false)
-			response ? setSuccess(true) : setSuccess(false)
+			response && setSuccess(true)
 		}
+
 		setLoading(false)
 	}
 

@@ -3,6 +3,7 @@ import { IUserLogin, IUserRegister } from '../../models/User/User.types'
 import { IUserToRegister } from './User.types'
 
 class UserAuth implements IUserRegister {
+	
 	email = ''
 	password = ''
 	repeatPassword = ''
@@ -49,6 +50,14 @@ class UserAuth implements IUserRegister {
 				break
 		}
 	}
+
+	resetUserParams(): void {
+		this.email = ''
+		this.password = ''
+		this.link = ''
+		this.username = ''
+	}
+
 	getUserToValidate(): IUserRegister {
 		return {
 			email: this.email,
