@@ -16,19 +16,15 @@ const LoginPage: FC = observer(() => {
 
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-
 		setLoading(true)
-
 		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
 		response.status !== 200 ? setErrors([response]) : setErrors([])
 		setLoading(false)
-		// user.setAuth(true) //debug
 	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, id } = e.currentTarget
 		userAuthStore.setUserParams(id, value)
-		console.log(userAuthStore.getUserToLogin())
 	}
 
 	useEffect(() => {}, [errors])
