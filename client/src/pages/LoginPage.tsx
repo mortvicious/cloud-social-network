@@ -1,26 +1,35 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useCallback } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { NavLink } from 'react-router-dom'
-import user from '../store/User/User'
 import AuthAPI from '../api/AuthAPI'
 import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
 import Spinner from 'react-bootstrap/Spinner'
+import user from '../store/User/User'
+import axios from 'axios'
 
 const LoginPage: FC = observer(() => {
 	const [errors, setErrors] = useState<string[]>([])
-
 	const [isLoading, setLoading] = useState<boolean>(false)
 
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault()
+		// e.preventDefault()
 		setLoading(true)
 		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
+		console.log(response)
 		response.status !== 200 ? setErrors([response]) : setErrors([])
+		user.setUser(
+			response.data.user.username,
+			response.data.user.link,
+			response.data.user.id
+		)
+		user.setToken(response.data.token)
+		user.setAuth(true)
 		setLoading(false)
 	}
+
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, id } = e.currentTarget
@@ -28,13 +37,12 @@ const LoginPage: FC = observer(() => {
 	}
 
 	useEffect(() => {}, [errors])
-
 	return (
 		<div className='container p-3 px-5 d-flex flex-column'>
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
 				<Card className='p-5 w-50 d-flex '>
 					<div className='d-flex align-items-center flex-column gap-0 pb-4 pt-0'>
-						{errors.map((error) => (
+						{errors?.map((error) => (
 							<p key={error} className='text-danger m-0 p-0'>
 								{error}
 							</p>

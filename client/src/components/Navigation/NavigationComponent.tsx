@@ -26,7 +26,6 @@ const NavigationComponent: FC = () => {
 
 				<Nav className='d-flex text-primary ml-1 gap-3 align-items-center'>
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='Home'
 						icon='bi bi-house-fill text-body text-black-50 i-size-25'
 						onClick={handleClick}
@@ -34,7 +33,6 @@ const NavigationComponent: FC = () => {
 						active={activeLink === 'Home'}
 					/>
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='Friends'
 						icon='bi bi-person-hearts text-body text-black-50 i-size-25'
 						onClick={handleClick}
@@ -42,7 +40,6 @@ const NavigationComponent: FC = () => {
 						active={activeLink === 'Friends'}
 					/>
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='Communities'
 						icon='bi bi-people-fill text-black-50 i-size-25'
 						onClick={handleClick}
@@ -50,7 +47,6 @@ const NavigationComponent: FC = () => {
 						active={activeLink === 'Communities'}
 					/>
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='Messenger'
 						icon='bi bi-chat-dots-fill text-black-50 i-size-25'
 						onClick={handleClick}
@@ -62,7 +58,6 @@ const NavigationComponent: FC = () => {
 					<SearchComponent />
 					<NotificationBellComponent onClick={handleNotificationClick} />
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='Settings'
 						icon='bi bi-gear-wide text-black-50 i-size-25'
 						onClick={handleClick}
@@ -70,7 +65,6 @@ const NavigationComponent: FC = () => {
 						active={activeLink === 'Settings'}
 					/>
 					<NavElementComponent
-						// className='d-flex align-items-center'
 						title='User'
 						icon='bi bi-person-fill text-black-50 i-size-25'
 						onClick={DEBUG_LOGOUT}

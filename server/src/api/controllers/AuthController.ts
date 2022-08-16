@@ -102,7 +102,7 @@ export class AuthController {
 			const user = await User.findOne({ _id: id})
 
 			const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
-				expiresIn: '1h',
+				expiresIn: '24h',
 			})
 
 			return res.json({
@@ -114,7 +114,7 @@ export class AuthController {
 				},
 			})
 		} catch (e) {
-			return res.send({ message: 'Server error' })
+			return res.status(500).send({ message: 'Server error' })
 		}
 	}
 }
