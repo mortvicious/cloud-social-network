@@ -1,9 +1,10 @@
 export interface IUser {
 	isAuth: boolean
-	username: string
+	username: string | null
 	id: string
 	link: string
-	avatar: string
+	avatar: string 
+	token: string | null
 }
 
 export interface IUserFriends {

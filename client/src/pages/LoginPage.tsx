@@ -7,6 +7,7 @@ import user from '../store/User/User'
 import AuthAPI from '../api/AuthAPI'
 import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
+import Spinner from 'react-bootstrap/Spinner'
 
 const LoginPage: FC = observer(() => {
 	const [errors, setErrors] = useState<string[]>([])
@@ -18,7 +19,8 @@ const LoginPage: FC = observer(() => {
 
 		setLoading(true)
 
-		const res = await AuthAPI.login(userAuthStore.getUserToLogin())
+		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
+		response.status !== 200 ? setErrors([response]) : setErrors([])
 		setLoading(false)
 		// user.setAuth(true) //debug
 	}
@@ -35,12 +37,15 @@ const LoginPage: FC = observer(() => {
 		<div className='container p-3 px-5 d-flex flex-column'>
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
 				<Card className='p-5 w-50 d-flex '>
-					<div className='d-flex flex-column gap-0 pb-4 pt-0'>
+					<div className='d-flex align-items-center flex-column gap-0 pb-4 pt-0'>
 						{errors.map((error) => (
 							<p key={error} className='text-danger m-0 p-0'>
 								{error}
 							</p>
 						))}
+						{isLoading ? (
+							<Spinner variant='primary' animation='border' role='status' />
+						) : null}
 					</div>
 					<Form>
 						<Form.Group className='mb-3' controlId='formBasicEmail'>

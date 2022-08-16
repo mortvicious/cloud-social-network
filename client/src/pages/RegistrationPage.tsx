@@ -17,7 +17,7 @@ const RegistrationPage: FC = observer(() => {
 
 	const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-		setInitialStates()
+		setRegistrationVisualProcessingStates()
 
 		const result: boolean = Validator.validateAll(
 			userAuthStore.getUserToValidate()
@@ -36,7 +36,7 @@ const RegistrationPage: FC = observer(() => {
 		userAuthStore.setUserParams(id, value)
 	}
 
-	const setInitialStates = () => {
+	const setRegistrationVisualProcessingStates = () => {
 		setSuccess(false)
 		setLoading(true)
 	}

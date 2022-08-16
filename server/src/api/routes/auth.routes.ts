@@ -18,6 +18,6 @@ router.post(
 
 router.post('/login', AuthController.login)
 
-router.get('/auth', authMiddleware, AuthController.auth)
+router.get('/authenticate', authMiddleware, AuthController.auth)
 
 export default router

@@ -67,19 +67,19 @@ export class AuthController {
 			const user = await User.findOne({ email })
 
 			if (!user) {
-				return res.status(400).json({ message: 'User not found' })
+				return res.status(400).send({ message: 'User not found' })
 			}
 
 			const isPassValid = bcrypt.compareSync(password, user.password)
 			if (!isPassValid) {
-				return res.status(400).json({ message: 'Wrong password' })
+				return res.status(400).send({ message: 'Wrong password' })
 			}
 
 			const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
 				expiresIn: '1h',
 			})
 
-			return res.json({
+			return res.send({
 				token,
 				user: {
 					id: user.id,
@@ -88,7 +88,7 @@ export class AuthController {
 				},
 			})
 		} catch (e) {
-			return res.send({ message: 'Server error' })
+			return res.status(500).send({ message: 'Server error' })
 		}
     }
     
@@ -110,7 +110,7 @@ export class AuthController {
 				user: {
 					id: user.id,
 					email: user.email,
-					login: user.username,
+					username: user.username,
 				},
 			})
 		} catch (e) {

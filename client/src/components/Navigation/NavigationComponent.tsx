@@ -23,6 +23,7 @@ const NavigationComponent: FC = () => {
 				<Navbar.Brand className='main-font px-3 pe-5 text-primary' href='#home'>
 					<strong>Cloud</strong>
 				</Navbar.Brand>
+
 				<Nav className='d-flex text-primary ml-1 gap-3 align-items-center'>
 					<NavElementComponent
 						// className='d-flex align-items-center'
