@@ -8,18 +8,25 @@ import { Validator } from '../helpers/Validator'
 import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
 import { ErrorHandler } from '../helpers/ErrorHandler'
+import Spinner from 'react-bootstrap/Spinner'
 
 const RegistrationPage: FC = observer(() => {
 	const [isLoading, setLoading] = useState<boolean>(false)
 	const [errors, setErrors] = useState<string[]>([])
+	const [isSuccess, setSuccess] = useState<boolean>(false)
 
 	const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
+		setSuccess(false)
 		setLoading(true)
-		const res: boolean = Validator.validateAll(userAuthStore.getUserToValidate())
+		const res: boolean = Validator.validateAll(
+			userAuthStore.getUserToValidate()
+		)
 		setErrors(ErrorHandler.getErrors())
 		if (res === true) {
-			await AuthAPI.register(userAuthStore.getUserToRegistration())
+			const response = await AuthAPI.register(userAuthStore.getUserToRegistration())
+			setLoading(false)
+			response ? setSuccess(true) : setSuccess(false)
 		}
 		setLoading(false)
 	}
@@ -35,10 +42,20 @@ const RegistrationPage: FC = observer(() => {
 		<div className='container p-3 px-5 d-flex flex-column justify-content-center'>
 			<div className='w-100 d-flex justify-content-center mt-1'>
 				<Card className='p-5 w-50 d-flex '>
-					<div className='d-flex flex-column gap-0 pb-4 pt-0'>
+					<div className='d-flex flex-column justify-content-center align-items-center gap-0 pb-4 pt-0'>
 						{errors.map((error) => (
-							<p key={error} className='text-danger m-0 p-0'>{error}</p>
+							<p key={error} className='text-danger m-0 p-0'>
+								{error}
+							</p>
 						))}
+						{isLoading ? (
+							<Spinner variant='primary' animation='border' role='status'>
+								<span className='visually-hidden'>Loading...</span>
+							</Spinner>
+						) : null}
+						{isSuccess ? (
+							<p className='text-success m-0 p-0'>User successfully created</p>
+						) : null}
 					</div>
 					<Form>
 						<Form.Group className='mb-3' controlId='formBasicEmail'>

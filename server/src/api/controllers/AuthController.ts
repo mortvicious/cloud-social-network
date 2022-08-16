@@ -11,11 +11,11 @@ export class AuthController {
 		req: Request,
 		res: Response
 	): Promise<Response<any, Record<string, any>>> {
-		try {
+        try {
 			const errors: Result<ValidationError> = validationResult(req)
 
 			if (!errors.isEmpty()) {
-				return res.status(400).json({ message: 'Incorrect request', errors })
+				return res.status(401).json({ message: 'Incorrect request', errors })
 			}
 
 			const { email, username, password, link } = req.body
@@ -23,7 +23,7 @@ export class AuthController {
 
 			if (candidateEmail) {
 				return res
-					.status(400)
+					.status(402)
 					.json({ message: `User with email ${email} already exists` })
 			}
 
@@ -31,7 +31,7 @@ export class AuthController {
 
 			if (candidateLink) {
 				return res
-					.status(400)
+					.status(403)
 					.json({ message: `User with link ${link} already exists` })
 			}
 
