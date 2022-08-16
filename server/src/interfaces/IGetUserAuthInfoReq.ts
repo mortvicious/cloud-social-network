@@ -6,5 +6,5 @@ export interface IJwtPayloadId extends JwtPayload {
 }
 
 export interface IGetUserAuthInfoRequest extends Request {
-	user?: IJwtPayloadId | string
+	user?: IJwtPayloadId 
 }

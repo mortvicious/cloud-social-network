@@ -91,7 +91,7 @@ export class AuthController {
 		res: Response
 	): Promise<Response<any, Record<string, any>>> {
         try {
-            const id: string | IJwtPayloadId = req.user.id
+            const id: string | IJwtPayloadId = req.user.id 
 
 			const user = await User.findOne({ _id: id})
 

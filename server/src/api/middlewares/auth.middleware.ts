@@ -11,7 +11,7 @@ export = (req: IGetUserAuthInfoRequest, res: Response, next: NextFunction) => {
 		if (!token) {
 			res.status(401).json({ message: 'Auth error' })
 		}
-		const decoded: IJwtPayloadId | string = jwt.verify(token, process.env.SECRET_KEY)
+		const decoded: IJwtPayloadId | string = jwt.verify(token, process.env.SECRET_KEY) as IJwtPayloadId
 		req.user = decoded
 		next()
 	} catch (e) {
