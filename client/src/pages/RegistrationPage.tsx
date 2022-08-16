@@ -17,22 +17,17 @@ const RegistrationPage: FC = observer(() => {
 
 	const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-
-		setSuccess(false)
-		setLoading(true)
+		setInitialStates()
 
 		const result: boolean = Validator.validateAll(
 			userAuthStore.getUserToValidate()
 		)
-
 		setErrors(ErrorHandler.getErrors())
 
-		if (result === true) {
-			const response = await AuthAPI.register(userAuthStore.getUserToRegistration())
-			setLoading(false)
-			response && setSuccess(true)
+		if (result) {
+			const response = await AuthAPI.register(userAuthStore.getUserToRegistration());
+			response.status === 200 ? setSuccess(true) : setErrors([response])
 		}
-
 		setLoading(false)
 	}
 
@@ -41,27 +36,32 @@ const RegistrationPage: FC = observer(() => {
 		userAuthStore.setUserParams(id, value)
 	}
 
+	const setInitialStates = () => {
+		setSuccess(false)
+		setLoading(true)
+	}
+
 	useEffect(() => {}, [errors])
 
 	return (
 		<div className='container p-3 px-5 d-flex flex-column justify-content-center'>
 			<div className='w-100 d-flex justify-content-center mt-1'>
 				<Card className='p-5 w-50 d-flex '>
+
 					<div className='d-flex flex-column justify-content-center align-items-center gap-0 pb-4 pt-0'>
-						{errors.map((error) => (
+						{errors?.map((error) => (
 							<p key={error} className='text-danger m-0 p-0'>
 								{error}
 							</p>
 						))}
 						{isLoading ? (
-							<Spinner variant='primary' animation='border' role='status'>
-								<span className='visually-hidden'>Loading...</span>
-							</Spinner>
+							<Spinner variant='primary' animation='border' role='status'/>
 						) : null}
 						{isSuccess ? (
 							<p className='text-success m-0 p-0'>User successfully created</p>
 						) : null}
 					</div>
+
 					<Form>
 						<Form.Group className='mb-3' controlId='formBasicEmail'>
 							<Form.Label className='text-primary'>

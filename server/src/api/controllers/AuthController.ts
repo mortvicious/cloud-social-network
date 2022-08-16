@@ -15,25 +15,31 @@ export class AuthController {
 			const errors: Result<ValidationError> = validationResult(req)
 
 			if (!errors.isEmpty()) {
-				return res.status(401).json({ message: 'Incorrect request', errors })
+				return res.status(400).send({ message: 'Incorrect request', errors })
 			}
 
-			const { email, username, password, link } = req.body
+            const { email, username, password, link } = req.body
+            
 			const candidateEmail: IUser = await User.findOne({ email })
-
 			if (candidateEmail) {
 				return res
-					.status(402)
-					.json({ message: `User with email ${email} already exists` })
+					.status(400)
+					.send({ message: `User with email ${email} already exists` })
 			}
 
 			const candidateLink: IUser = await User.findOne({ link })
-
 			if (candidateLink) {
 				return res
-					.status(403)
-					.json({ message: `User with link ${link} already exists` })
-			}
+					.status(400)
+					.send({ message: `User with link ${link} already exists` })
+            }
+            
+            const candidateUsername: IUser = await User.findOne({ username })
+            if (candidateUsername) {
+                return res
+                    .status(400)
+                    .send({ message: `User with username ${username} already exists`})
+            }
 
 			const hashPassword: string = await bcrypt.hash(password, 15)
 			const user: IUser = new User({
@@ -45,9 +51,9 @@ export class AuthController {
 
 			await user.save()
 
-			return res.json({ message: 'User was created' })
+			return res.status(200).send({ message: 'User was created' })
 		} catch (e) {
-			return res.send({ message: 'Server error' })
+			return res.status(500).send({ message: 'Server error' })
 		}
 	}
 

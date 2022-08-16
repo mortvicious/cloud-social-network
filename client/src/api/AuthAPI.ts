@@ -42,9 +42,12 @@ class AuthAPI {
 					link,
 				}
 			)
+			console.log(response.data)
 			return response
 		} catch (e: any) {
-			const error = e.response.data.errors
+			const error = e.response.data.message
+			console.log(`api`)
+			console.log(e.response.data)
 			return error
 		}
 	}
