@@ -1,14 +1,15 @@
 import { IJwtPayloadId } from './../../interfaces/IGetUserAuthInfoReq';
 import { Request, Response } from 'express'
 import { IGetUserAuthInfoRequest } from 'src/interfaces/IGetUserAuthInfoReq'
-import { User, IUser } from '../../database/models/UserModel'
+import { User } from '../../database/models/UserModel'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { ValidationError, validationResult, Result } from 'express-validator'
 import { FileService } from '../services/FileService';
+import {IUser} from "../../interfaces/IUser";
 
 export class AuthController {
-	static async registration(
+	static async Register(
 		req: Request,
 		res: Response
 	): Promise<Response<any, Record<string, any>>> {
@@ -51,7 +52,7 @@ export class AuthController {
 			})
 
 			await user.save()
-			FileService.createInitialDir(email)
+			await FileService.createInitialDir(email)
 			
 			return res.status(200).send({ message: 'User was created' })
 		} catch (e) {
@@ -59,7 +60,7 @@ export class AuthController {
 		}
 	}
 
-	static async login(
+	static async Login(
 		req: Request,
 		res: Response
 	): Promise<Response<any, Record<string, any>>> {
@@ -94,7 +95,7 @@ export class AuthController {
 		}
     }
     
-	static async auth(
+	static async Auth(
 		req: IGetUserAuthInfoRequest,
 		res: Response
 	): Promise<Response<any, Record<string, any>>> {

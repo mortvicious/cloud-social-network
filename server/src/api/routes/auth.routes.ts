@@ -13,11 +13,11 @@ router.post(
 		check('username', 'Login is incorrect').isLength({ min: 3, max: 20 }),
 		// check('link', 'Link is incorrect').isLength({min:3, max: 20})
 	],
-	AuthController.registration
+	AuthController.Register
 )
 
-router.post('/login', AuthController.login)
+router.post('/login', AuthController.Login)
 
-router.get('/authenticate', authMiddleware, AuthController.auth)
+router.get('/authenticate', authMiddleware, AuthController.Auth)
 
 export default router
