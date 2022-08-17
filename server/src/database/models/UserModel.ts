@@ -1,24 +1,5 @@
-import { Schema, model, ObjectId, Document } from "mongoose";
-
-export interface IUser extends Document {
-    email: string,
-    username: string,
-    password: string,
-    link: string,
-    avatar: string,
-    posts: ObjectId[],
-    settings: object[],
-    communities: ObjectId[],
-    friends: ObjectId[],
-    friendRequests: object[],
-    registrationDate: Date,
-    lastOnline: Date,
-}
-
-interface IFriendRequests extends Document {
-    from: ObjectId[]
-    to: ObjectId[]
-}
+import { Schema, model } from "mongoose";
+import {IFriendRequests, IUser} from "../../interfaces/IUser";
 
 const friendRequestsSchema = new Schema<IFriendRequests>({
 	from: [{ type: Schema.Types.ObjectId, ref: 'User' }],
@@ -39,7 +20,7 @@ const userSchema = new Schema<IUser>({
     settings: [{type: settingsSchema, default: []}],
     communities: [{ type: Schema.Types.ObjectId, ref: 'Community' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    friendRequests: friendRequestsSchema,
+    friendRequests: [{ type: friendRequestsSchema }],
     registrationDate: { type: Date, default: Date.now() },
     lastOnline: { type: Date }
 })

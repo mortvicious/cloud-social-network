@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-
 app.use('/api/auth', authRouter)
 
 const start = () => {

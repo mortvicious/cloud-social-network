@@ -10,7 +10,7 @@ export class FileService {
             await makeDir(`assets/users/${id}/photos`)
             return {message: 'Folders created'}
         } catch (e) {
-            return {message: 'Error creating initial folders'} 
+            return {message: 'Error creating initial folders'}
         }
     }
     static async addPhotoToUser(id: string) {
