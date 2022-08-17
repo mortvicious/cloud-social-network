@@ -49,7 +49,7 @@ const RegistrationPage: FC = observer(() => {
 				<Card className='p-5 w-50 d-flex '>
 
 					<div className='d-flex flex-column justify-content-center align-items-center gap-0 pb-4 pt-0'>
-						{errors?.map((error) => (
+						{errors?.map((error: string) => (
 							<p key={error} className='text-danger m-0 p-0'>
 								{error}
 							</p>

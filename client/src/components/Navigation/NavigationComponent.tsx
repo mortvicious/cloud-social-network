@@ -14,11 +14,11 @@ const NavigationComponent: FC = () => {
 		const title = e.currentTarget.title
 		setActiveLink(title)
 	}
-	
+
 	const handleNotificationClick = () => {}
 
 	return (
-		<Navbar className='border-bottom' bg='light' variant='light'>
+		<Navbar className='border-bottom z-index-1 position-relative' bg='light' variant='light'>
 			<Container className='d-flex w-100 justify-content-between align-items-center'>
 				<Navbar.Brand className='main-font px-3 pe-5 text-primary' href='#home'>
 					<strong>Cloud</strong>
@@ -71,6 +71,33 @@ const NavigationComponent: FC = () => {
 						to='/'
 						active={activeLink === 'User'}
 					/>
+					<div className='dropdown'>
+						<button
+							className='btn btn-secondary dropdown-toggle'
+							type='button'
+							data-bs-toggle='dropdown'
+							aria-expanded='false'
+						>
+							Dropdown button
+						</button>
+						<ul className='dropdown-menu'>
+							<li>
+								<a className='dropdown-item' href='#'>
+									Action
+								</a>
+							</li>
+							<li>
+								<a className='dropdown-item' href='#'>
+									Another action
+								</a>
+							</li>
+							<li>
+								<a className='dropdown-item' href='#'>
+									Something else here
+								</a>
+							</li>
+						</ul>
+					</div>
 				</Nav>
 			</Container>
 		</Navbar>
