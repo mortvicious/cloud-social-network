@@ -9,14 +9,14 @@ import user from '../../store/User/User'
 
 const NavigationComponent: FC = () => {
 	const [activeLink, setActiveLink] = useState<string>('Home')
+
 	const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
 		const title = e.currentTarget.title
 		setActiveLink(title)
 	}
+	
 	const handleNotificationClick = () => {}
-	const DEBUG_LOGOUT = () => {
-		user.setAuth(false)
-	}
+
 	return (
 		<Navbar className='border-bottom' bg='light' variant='light'>
 			<Container className='d-flex w-100 justify-content-between align-items-center'>
@@ -67,7 +67,7 @@ const NavigationComponent: FC = () => {
 					<NavElementComponent
 						title='User'
 						icon='bi bi-person-fill text-black-50 i-size-25'
-						onClick={DEBUG_LOGOUT}
+						onClick={handleClick}
 						to='/'
 						active={activeLink === 'User'}
 					/>

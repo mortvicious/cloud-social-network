@@ -8,6 +8,7 @@ import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
 import Spinner from 'react-bootstrap/Spinner'
 import user from '../store/User/User'
+import { AxiosResponse } from 'axios'
 
 const LoginPage: FC = observer(() => {
 	const [errors, setErrors] = useState<string[]>([])
@@ -15,20 +16,32 @@ const LoginPage: FC = observer(() => {
 
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-		setLoading(true)
+		setInitialStates()
 		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
 		console.log(response)
-		response.status !== 200 ? setErrors([response]) : setErrors([])
-		user.setUser(
-			response.data.user.username,
-			response.data.user.link,
-			response.data.user.id
-		)
-		user.setToken(response.data.token)
-		user.setAuth(true)
+		handleResponse(response)
 		setLoading(false)
 	}
 
+	const setInitialStates = () => {
+		setLoading(true)
+		setErrors([])
+	}
+
+	const handleResponse = (response: any) => {
+		if (response.status === 200) {
+			setErrors([])
+			user.setUser(
+				response.data.user.username,
+				response.data.user.link,
+				response.data.user.id
+			)
+			user.setToken(response.data.token)
+			user.setAuth(true)
+		} else {
+			setErrors([response])
+		}
+	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, id } = e.currentTarget
