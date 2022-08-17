@@ -8,10 +8,13 @@ import bodyParser from 'body-parser'
 export class App {
 	static readonly app: Express = express()
 	static readonly PORT: string = process.env.PORT || '5000'
+	static readonly origin: string = 'http://localhost:3000'
+	static readonly clientBuildPath: string = '../client/build'
+	
 	static ConfigureServer(): void {
-		this.app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
+		this.app.use(cors({ credentials: true, origin: this.origin }))
 		this.app.use(express.json())
-		this.app.use(express.static(path.join(__dirname, '../client/build')))
+		this.app.use(express.static(path.join(__dirname, this.clientBuildPath)))
 		this.app.use(express.urlencoded({ extended: true }))
 		this.app.use(bodyParser.json())
 	}
