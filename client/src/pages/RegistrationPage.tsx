@@ -19,10 +19,10 @@ const RegistrationPage: FC = observer(() => {
 		e.preventDefault()
 		setRegistrationVisualProcessingStates()
 
-		const result: boolean = Validator.validateAll(
+		const result: boolean = Validator.ValidateAll(
 			userAuthStore.getUserToValidate()
 		)
-		setErrors(ErrorHandler.getErrors())
+		setErrors(ErrorHandler.GetErrors())
 
 		if (result) {
 			const response = await AuthAPI.register(userAuthStore.getUserToRegistration());

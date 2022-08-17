@@ -4,7 +4,7 @@ import userStore from '../store/User/User'
 import axios from 'axios'
 
 class AuthAPI {
-	static async login(data: IUserLogin) {
+	static async Login(data: IUserLogin) {
 		const { email, password } = data
 		try {
 			const response = await axios.post(
@@ -22,7 +22,7 @@ class AuthAPI {
 		}
 	}
 
-	static async logout() {}
+	static async Logout() {}
 
 	static async register(data: IUserToRegister) {
 		const { email, username, password, link } = data
@@ -45,7 +45,7 @@ class AuthAPI {
 		}
 	}
 
-	static async authenticate() {
+	static async Authenticate() {
 		try {
 			const { data } = await axios.get(
 				'http://localhost:5000/api/auth/authenticate',
@@ -66,7 +66,7 @@ class AuthAPI {
 		}
 	}
 
-	static async refreshToken() {}
+	static async RefreshToken() {}
 }
 
 export default AuthAPI

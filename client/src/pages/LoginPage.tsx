@@ -17,7 +17,7 @@ const LoginPage: FC = observer(() => {
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
 		setInitialStates()
-		const response = await AuthAPI.login(userAuthStore.getUserToLogin())
+		const response = await AuthAPI.Login(userAuthStore.getUserToLogin())
 		console.log(response)
 		handleResponse(response)
 		setLoading(false)

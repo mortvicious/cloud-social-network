@@ -1,7 +1,7 @@
 class FeedAPI {
-    static async getFeedPosts() { }
-    static async filterFeedPosts() { }
-    static async changeFeedPostsSettings() { }
+    static async GetFeedPosts() { }
+    static async FilterFeedPosts() { }
+    static async ChangeFeedPostsSettings() { }
 }
 
 export default FeedAPI

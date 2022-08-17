@@ -1,8 +1,8 @@
 class FriendsAPI {
-    static async sendFriendRequest () { }
-    static async acceptFriendRequest () { }
-    static async declineFriendRequest () { }
-    static async removeFriend () { }
+    static async SendFriendRequest () { }
+    static async AcceptFriendRequest () { }
+    static async DeclineFriendRequest () { }
+    static async RemoveFriend () { }
 }
 
 export default FriendsAPI

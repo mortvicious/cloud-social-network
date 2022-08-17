@@ -2,7 +2,7 @@ import axios from 'axios'
 import { INewPost } from '../store/NewPost/NewPost.types'
 
 class PostAPI {
-	static async createPost(data: INewPost) {
+	static async CreatePost(data: INewPost) {
 		try {
 			const res = await axios.post('', {
 				data,
@@ -12,11 +12,11 @@ class PostAPI {
 			throw new Error(e)
 		}
 	}
-	static async remove() {}
-	static async edit() {}
-	static async like() {}
-	static async share() {}
-	static async flagAsInappropriate() {}
+	static async Remove() {}
+	static async Edit() {}
+	static async Like() {}
+	static async Share() {}
+	static async FlagAsInappropriate() {}
 }
 
 export default PostAPI

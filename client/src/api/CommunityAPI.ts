@@ -1,13 +1,13 @@
 class CommunityAPI {
-	static async create() {}
-	static async edit() {}
-	static async delete() {}
-	static async addAdmin() {}
-	static async promoteToAdmin() {}
-	static async removeAdmin() {}
-	static async changeCommunitySettings() {}
-	static async inviteUser() {}
-	static async deleteUser() {}
+	static async Create() {}
+	static async Edit() {}
+	static async Delete() {}
+	static async AddAdmin() {}
+	static async PromoteToAdmin() {}
+	static async RemoveAdmin() {}
+	static async ChangeCommunitySettings() {}
+	static async InviteUser() {}
+	static async DeleteUser() {}
 }
 
 export default CommunityAPI

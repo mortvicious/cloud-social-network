@@ -20,7 +20,7 @@ const IDUserPage: FC = observer(() => {
 	const state = location.state as IState
 
 	const setUserData = async () => {
-		const user: IUserPageModel = await UserAPI.getUserPageData(state.id)
+		const user: IUserPageModel = await UserAPI.GetUserPageData(state.id)
 		userPageStore.setUserPage(user)
 		setLoading(false)
 	}

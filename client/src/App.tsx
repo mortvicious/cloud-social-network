@@ -7,7 +7,7 @@ import AuthAPI from './api/AuthAPI'
 function App() {
 	useEffect(() => {
 		// user.setAuth(true) //debug
-		AuthAPI.authenticate()
+		AuthAPI.Authenticate()
 		console.log(user.username)
 	}, [])
 	return (

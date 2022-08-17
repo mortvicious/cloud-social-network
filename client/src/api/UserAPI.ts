@@ -2,8 +2,8 @@ import axios from 'axios'
 import { IUserPageModel } from './../models/User/User.types'
 
 class UserAPI {
-	static async changeSettings() {}
-	static async getUserPageData(userID: string) {
+	static async ChangeSettings() {}
+	static async GetUserPageData(userID: string) {
 		try {
 			const data: IUserPageModel = await axios.post('', {
 				userID,
@@ -13,7 +13,7 @@ class UserAPI {
 			throw new Error(e)
 		}
     }
-    static async getUserFeedPosts(userID: string) {
+    static async GetUserFeedPosts(userID: string) {
         
     }
 }

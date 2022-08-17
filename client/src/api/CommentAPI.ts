@@ -1,12 +1,12 @@
 import { INewComment } from "../store/NewComment/NewComment.types";
 
 class CommentAPI {
-    static async addComment(data: INewComment, postID: string) {}
-    static async deleteComment() { }
-    static async editComment() { }
-    static async likeComment() { }
-    static async unlikeComment() { }
-    static async flagCommentAsInappropriate() {}
+    static async AddComment(data: INewComment, postID: string) {}
+    static async DeleteComment() { }
+    static async EditComment() { }
+    static async LikeComment() { }
+    static async UnlikeComment() { }
+    static async FlagCommentAsInappropriate() {}
 }
 
 export default CommentAPI

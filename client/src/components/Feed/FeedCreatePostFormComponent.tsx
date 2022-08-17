@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite'
 
 const FeedCreatePostFormComponent: FC = observer(() => {
 	const handleSendBtn = () => {
-		PostAPI.createPost(newPostStore.getData())
+		PostAPI.CreatePost(newPostStore.getData())
 	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
