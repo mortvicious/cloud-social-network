@@ -17,7 +17,7 @@ const LoginPage: FC = observer(() => {
 	const handleLoginBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
 		setInitialStates()
-		const response = await AuthAPI.Login(userAuthStore.getUserToLogin())
+		const response: Promise<any> = await AuthAPI.Login(userAuthStore.getUserToLogin())
 		console.log(response)
 		handleResponse(response)
 		setLoading(false)
@@ -54,7 +54,7 @@ const LoginPage: FC = observer(() => {
 			<div className='w-100 d-flex flex-column justify-content-center align-items-center mt-5'>
 				<Card className='p-5 w-50 d-flex '>
 					<div className='d-flex align-items-center flex-column gap-0 pb-4 pt-0'>
-						{errors?.map((error) => (
+						{errors.map((error: string) => (
 							<p key={error} className='text-danger m-0 p-0'>
 								{error}
 							</p>

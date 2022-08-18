@@ -1,5 +1,6 @@
 import { IGetUserAuthInfoRequest } from 'src/interfaces/IGetUserAuthInfoReq';
 import { Response } from 'express'
+import { User } from '../../database/models/UserModel'
 
 export class UserController {
 	static async uploadAvatar(req: IGetUserAuthInfoRequest, res: Response) {

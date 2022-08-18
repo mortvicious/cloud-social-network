@@ -10,7 +10,8 @@ import user from '../../store/User/User'
 const NavigationComponent: FC = () => {
 	const [activeLink, setActiveLink] = useState<string>('Home')
 
-	const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+	const handleClick: React.MouseEventHandler<HTMLDivElement> = (
+		e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		const title = e.currentTarget.title
 		setActiveLink(title)
 	}
@@ -71,33 +72,6 @@ const NavigationComponent: FC = () => {
 						to='/'
 						active={activeLink === 'User'}
 					/>
-					<div className='dropdown'>
-						<button
-							className='btn btn-secondary dropdown-toggle'
-							type='button'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						>
-							Dropdown button
-						</button>
-						<ul className='dropdown-menu'>
-							<li>
-								<a className='dropdown-item' href='#'>
-									Action
-								</a>
-							</li>
-							<li>
-								<a className='dropdown-item' href='#'>
-									Another action
-								</a>
-							</li>
-							<li>
-								<a className='dropdown-item' href='#'>
-									Something else here
-								</a>
-							</li>
-						</ul>
-					</div>
 				</Nav>
 			</Container>
 		</Navbar>

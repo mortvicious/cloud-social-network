@@ -10,7 +10,7 @@ interface IPostCommentFormComponent {
 const PostCommentFormComponent: FC<IPostCommentFormComponent> = observer(
 	({ postID }) => {
 		const handleSendBtn = () => {
-			CommentAPI.addComment(newCommentStore.getData(), postID)
+			CommentAPI.AddComment(newCommentStore.getData(), postID)
 		}
 
 		const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

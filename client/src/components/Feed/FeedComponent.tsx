@@ -19,9 +19,9 @@ const FeedComponent: FC<IFeedComponent> = ({userID}) => {
 		//if user set posts from user
 		//else set posts from friends/community
 		if (userID) {
-			UserAPI.getUserFeedPosts(userID)
+			UserAPI.GetUserFeedPosts(userID)
 		} else {
-			FeedAPI.getFeedPosts()
+			FeedAPI.GetFeedPosts()
 		}
 		setPosts(mockPosts)
 	}, [])

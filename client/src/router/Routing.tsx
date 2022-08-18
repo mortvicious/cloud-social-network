@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import user from '../store/User/User'
 import { observer } from 'mobx-react-lite'
@@ -15,6 +14,7 @@ import IDUserPage from '../pages/IDUserPage'
 import IDCommunityPage from '../pages/IDCommunityPage'
 import RouterHelper from './RouterHelper'
 import IDPostPage from '../pages/IDPostPage'
+import React from 'react'
 
 const Routing = observer(() => {
 	return user.isAuth ? (
