@@ -4,9 +4,28 @@ import { User } from '../../database/models/UserModel'
 
 export class UserController {
 	static async uploadAvatar(req: IGetUserAuthInfoRequest, res: Response) {
-		const id = req.user.id
+		try {
+			const {id} = req.user
+			return res.status(200).send( {message: 'Avatar has been uploaded'} )
+		} catch (e) {
+			res.status(400).send( {message: 'Error uploading avatar'} )
+		}
 	}
-	static async getAvatarPath(req: IGetUserAuthInfoRequest, res: Response) {
-		const id = req.user.id
+	static async getAvatar(req: IGetUserAuthInfoRequest, res: Response) {
+		try {
+			const {id} = req.user
+			return res.status(200).send( {message: 'Avatar retrieved'} )
+		} catch (e) {
+			res.status(400).send( {message: 'Error retrieving avatar'} )
+		}
+	}
+	static async setUserSettings(req: IGetUserAuthInfoRequest, res: Response) {
+		try {
+			const {id} = req.user
+			const {settings} = req.body
+			return res.status(200).send( {message: 'User settings successfully saved'} )
+		} catch (e) {
+			res.status(400).send( {message: 'Error saving user settings'} )
+		}
 	}
 }

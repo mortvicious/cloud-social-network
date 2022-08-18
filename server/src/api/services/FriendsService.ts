@@ -1,4 +1,4 @@
-import User from '../../database/models/UserModel'
+// import User from '../../database/models/UserModel'
 
 export class FriendsService {
 	static async AddToFriendsRequests(userId: string, candidateId: string) {
@@ -10,5 +10,7 @@ export class FriendsService {
 	static async AddToFriendsList(userId: string, candidateId: string) {
 		
 	}
-	
+	static async RemoveFromFriendsList(userId: string, candidateId: string) {
+		
+	}
 }

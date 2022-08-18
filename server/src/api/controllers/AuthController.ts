@@ -49,6 +49,7 @@ export class AuthController {
 				username,
 				password: hashPassword,
 				link,
+				avatar: `/assets/users/${email}`,
 			})
 
 			await user.save()

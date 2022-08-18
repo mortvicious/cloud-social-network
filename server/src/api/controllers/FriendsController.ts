@@ -15,6 +15,7 @@ export class FriendsController {
 		}
 		
 	}
+	
 	static async AcceptFriendRequest(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
@@ -26,6 +27,7 @@ export class FriendsController {
 			return res.status(400).send({ message: 'Error accepting friend request' })
 		}
 	}
+	
 	static async DeclineFriendRequest(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
@@ -36,6 +38,7 @@ export class FriendsController {
 			return res.status(400).send({ message: 'Error declining friend request' })
 		}
 	}
+	
 	static async GetFriendRequestsList(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
@@ -43,6 +46,17 @@ export class FriendsController {
 			return res.status(200).send(requests)
 		} catch (e) {
 			return res.status(400).send({ message: 'Could not retrieve friend requests list' })
+		}
+	}
+
+	static async DeleteFromFriends(req: IGetUserAuthInfoRequest, res: Response ) {
+		try {
+			const {id} = req.user
+			const {candidate} = req.body
+			await FriendsService.RemoveFromFriendsList(id, candidate)
+			return res.status(200).send( {message: 'Friend deleted'} )
+		} catch (e) {
+			return res.status(400).send( {message: 'Error deleting friend'} )
 		}
 	}
 }

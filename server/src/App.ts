@@ -4,6 +4,7 @@ import path from 'path'
 import { MongooseService } from './database/services/MongooseService'
 import authRouter from './api/routes/auth.routes'
 import bodyParser from 'body-parser'
+import friendsRouter from "./api/routes/friends.routes";
 
 export class App {
 	static readonly app: Express = express()
@@ -20,6 +21,7 @@ export class App {
 	}
 	static ConfigureRoutes(): void {
 		this.app.use('/api/auth', authRouter)
+		this.app.use('/api/friends', friendsRouter)
 	}
 	static ConfigureDB(): void {
 		try {

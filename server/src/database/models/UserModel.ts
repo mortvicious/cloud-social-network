@@ -20,9 +20,9 @@ const userSchema = new Schema<IUser>({
     settings: [{type: settingsSchema, default: []}],
     communities: [{ type: Schema.Types.ObjectId, ref: 'Community' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    friendRequests: [{ type: friendRequestsSchema }],
+    friendRequests: [{ type: friendRequestsSchema, default: [] }],
     registrationDate: { type: Date, default: Date.now() },
-    lastOnline: { type: Date }
+    lastOnline: { type: Date, default: Date.now() }
 })
 
 
