@@ -42,10 +42,20 @@ export class FriendsController {
 	static async GetFriendRequestsList(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
-			const requests = User.findById(id).select('friendRequests')
+			const requests = await User.findById(id).select('friendRequests')
 			return res.status(200).send(requests)
 		} catch (e) {
 			return res.status(400).send({ message: 'Could not retrieve friend requests list' })
+		}
+	}
+	
+	static async GetFriendsList(req: IGetUserAuthInfoRequest, res: Response) {
+		try {
+			const {id} = req.user
+			const friends = await FriendsService.GetUserFriendList(id)
+			return res.status(200).send(friends)
+		} catch (e) {
+			return res.status(400).send({ message: 'Could not retrieve friends list' })
 		}
 	}
 

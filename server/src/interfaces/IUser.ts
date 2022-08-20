@@ -11,11 +11,12 @@ export interface IUser extends Document {
 	password: string,
 	link: string,
 	avatar: string,
-	posts: ObjectId[],
+	posts: object[],
 	settings: object[],
 	communities: ObjectId[],
 	friends: ObjectId[],
 	friendRequests: object[],
 	registrationDate: Date,
 	lastOnline: Date,
+	blockList: ObjectId[]
 }

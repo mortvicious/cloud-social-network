@@ -30,4 +30,5 @@ export class UserController {
 			return res.status(400).send( {message: 'Error saving user settings'} )
 		}
 	}
+	
 }
