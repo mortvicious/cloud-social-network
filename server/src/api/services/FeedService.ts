@@ -15,6 +15,17 @@ export class FeedService {
             return []
         }
     }
+
+    static async PrepareFeedPosts(friends: string[], communities: string[]) {
+        try {
+            const friendsPosts = await this.GetUserFriendsFeedPosts(friends)
+            const communitiesPosts = await this.GetUserCommunitiesFeedPosts(communities)
+            const posts = friendsPosts.concat(communitiesPosts)
+            return Sorter.SortObjectsInArrByDate(posts)
+        } catch(e) {
+            return []
+        }
+    }
     
     static async GetUserFriendsFeedPosts(friends: string[]) {
         try {
@@ -38,17 +49,6 @@ export class FeedService {
             }
             return posts
         } catch (e) {
-            return []
-        }
-    }
-    
-    static async PrepareFeedPosts(friends: string[], communities: string[]) {
-        try {
-            const friendsPosts = await this.GetUserFriendsFeedPosts(friends)
-            const communitiesPosts = await this.GetUserCommunitiesFeedPosts(communities)
-            const posts = friendsPosts.concat(communitiesPosts)
-            return Sorter.SortObjectsInArrByDate(posts)
-        } catch(e) {
             return []
         }
     }
