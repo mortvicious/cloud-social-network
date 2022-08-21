@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 import { IUser } from './User.types'
 
 class User implements IUser {
-	isAuth: boolean = false
+	isAuth: boolean = !!localStorage.getItem('token')
 	username: string | null = localStorage.getItem('username')
 	link: string = ''
 	id: string = ''

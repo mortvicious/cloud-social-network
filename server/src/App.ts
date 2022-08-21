@@ -4,13 +4,15 @@ import path from 'path'
 import { MongooseService } from './database/services/MongooseService'
 import authRouter from './api/routes/auth.routes'
 import bodyParser from 'body-parser'
-import friendsRouter from "./api/routes/friends.routes";
+import friendsRouter from "./api/routes/friends.routes"
+import multer from 'multer'
 
 export class App {
 	static readonly app: Express = express()
-	static readonly PORT: string = process.env.PORT || '5000'
+	static readonly PORT : string = process.env.PORT || '5000'
 	static readonly origin: string = 'http://localhost:3000'
 	static readonly clientBuildPath: string = '../client/build'
+	static readonly upload: multer = multer()
 	
 	static ConfigureServer(): void {
 		this.app.use(cors({ credentials: true, origin: this.origin }))
