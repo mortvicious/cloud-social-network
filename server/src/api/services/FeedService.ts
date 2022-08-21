@@ -1,4 +1,3 @@
-//import { User } from '../../database/models/UserModel'
 import {FriendsService} from "./FriendsService";
 import {Sorter} from "../../helpers/Sorter";
 import {UserService} from "./UserService";

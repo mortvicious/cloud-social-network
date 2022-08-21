@@ -9,6 +9,6 @@ router.post('/decline-request', authMiddleware, FriendsController.DeclineFriendR
 router.post('/send-request', authMiddleware, FriendsController.SendFriendRequest)
 router.delete('/delete-friend', authMiddleware, FriendsController.DeleteFromFriends)
 router.get('/get-requests', authMiddleware, FriendsController.GetFriendRequestsList)
-
+router.get('/', authMiddleware, FriendsController.GetFriendsList)
 
 export default router

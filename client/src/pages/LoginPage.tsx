@@ -18,7 +18,6 @@ const LoginPage: FC = observer(() => {
 		e.preventDefault()
 		setInitialStates()
 		const response: Promise<any> = await AuthAPI.Login(userAuthStore.getUserToLogin())
-		console.log(response)
 		handleResponse(response)
 		setLoading(false)
 	}
@@ -29,18 +28,22 @@ const LoginPage: FC = observer(() => {
 	}
 
 	const handleResponse = (response: any) => {
-		if (response.status === 200) {
-			setErrors([])
-			user.setUser(
-				response.data.user.username,
-				response.data.user.link,
-				response.data.user.id
-			)
-			user.setToken(response.data.token)
-			user.setAuth(true)
-		} else {
-			setErrors([response])
-		}
+		response.status === 200 ? onLoginSuccess(response) : onLoginFail(response)
+	}
+	
+	const onLoginSuccess = (response: any) => {
+		setErrors([])
+		user.setUser(
+			response.data.user.username,
+			response.data.user.link,
+			response.data.user.id
+		)
+		user.setToken(response.data.token)
+		user.setAuth(true)
+	}
+	
+	const onLoginFail = (response: any) => {
+		setErrors([response])
 	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

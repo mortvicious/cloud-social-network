@@ -5,6 +5,8 @@ import { MongooseService } from './database/services/MongooseService'
 import authRouter from './api/routes/auth.routes'
 import bodyParser from 'body-parser'
 import friendsRouter from "./api/routes/friends.routes"
+import feedRouter from './api/routes/feed.routes'
+import postRouter from './api/routes/posts.routes'
 import multer from 'multer'
 
 export class App {
@@ -24,6 +26,8 @@ export class App {
 	static ConfigureRoutes(): void {
 		this.app.use('/api/auth', authRouter)
 		this.app.use('/api/friends', friendsRouter)
+		this.app.use('/api/feed', feedRouter)
+		this.app.use('/api/post', postRouter)
 	}
 	static ConfigureDB(): void {
 		try {
