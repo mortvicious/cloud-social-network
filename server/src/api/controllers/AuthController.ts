@@ -1,5 +1,5 @@
 import { IJwtPayloadId } from './../../interfaces/IGetUserAuthInfoReq';
-import { Request, Response } from 'express'
+import {NextFunction, Request, Response} from 'express'
 import { IGetUserAuthInfoRequest } from 'src/interfaces/IGetUserAuthInfoReq'
 import { User } from '../../database/models/UserModel'
 import bcrypt from 'bcrypt'
@@ -7,12 +7,14 @@ import jwt from 'jsonwebtoken'
 import { ValidationError, validationResult, Result } from 'express-validator'
 import { FileService } from '../services/FileService';
 import {IUser} from "../../interfaces/IUser";
+import {ApiException} from "../exception/ApiException";
 
 export class AuthController {
 	static async Register(
 		req: Request,
-		res: Response
-	): Promise<Response<any, Record<string, any>>> {
+		res: Response,
+		next: NextFunction
+	) {
         try {
 			const errors: Result<ValidationError> = validationResult(req)
 
@@ -27,6 +29,7 @@ export class AuthController {
 				return res
 					.status(400)
 					.send({ message: `User with email ${email} already exists` })
+				
 			}
 
 			const candidateLink: IUser = await User.findOne({ link })
@@ -63,20 +66,21 @@ export class AuthController {
 
 	static async Login(
 		req: Request,
-		res: Response
-	): Promise<Response<any, Record<string, any>>> {
+		res: Response,
+		next: NextFunction
+	) {
 		try {
 			const { email, password } = req.body
 
 			const user = await User.findOne({ email })
 
 			if (!user) {
-				return res.status(400).send({ message: 'User not found' })
+				return next(ApiException.BadRequest('User not found'))
 			}
 
 			const isPassValid = bcrypt.compareSync(password, user.password)
 			if (!isPassValid) {
-				return res.status(400).send({ message: 'Wrong password' })
+				return next(ApiException.BadRequest('Wrong password'))
 			}
 
 			const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {

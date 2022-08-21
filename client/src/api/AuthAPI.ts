@@ -23,7 +23,7 @@ class AuthAPI {
 
 	static async Logout() {}
 
-	static async register(data: IUserToRegister) {
+	static async Register(data: IUserToRegister) {
 		const { email, username, password, link } = data
 		console.log(data)
 		try {
@@ -61,8 +61,6 @@ class AuthAPI {
 			localStorage.removeItem('id')
 		}
 	}
-
-	static async RefreshToken() {}
 }
 
 export default AuthAPI

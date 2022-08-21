@@ -6,6 +6,7 @@ import {App} from "./App";
 App.ServerStart()
 App.ConfigureServer()
 App.ConfigureRoutes()
+App.ConfigureErrorMiddleware()
 
 
 

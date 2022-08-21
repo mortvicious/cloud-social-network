@@ -18,6 +18,10 @@ const NavigationComponent: FC = () => {
 
 	const handleNotificationClick = () => {}
 
+	const DEBUG_LOGOUT = () => {
+		user.setAuth(false)
+	}
+	
 	return (
 		<Navbar className='border-bottom z-index-1 position-relative' bg='light' variant='light'>
 			<Container className='d-flex w-100 justify-content-between align-items-center'>
@@ -68,7 +72,7 @@ const NavigationComponent: FC = () => {
 					<NavElementComponent
 						title='User'
 						icon='bi bi-person-fill text-black-50 i-size-25'
-						onClick={handleClick}
+						onClick={DEBUG_LOGOUT}
 						to='/'
 						active={activeLink === 'User'}
 					/>

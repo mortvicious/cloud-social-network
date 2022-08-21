@@ -25,7 +25,7 @@ const RegistrationPage: FC = observer(() => {
 		setErrors(ErrorHandler.GetErrors())
 
 		if (result) {
-			const response = await AuthAPI.register(userAuthStore.getUserToRegistration());
+			const response = await AuthAPI.Register(userAuthStore.getUserToRegistration());
 			response.status === 200 ? setSuccess(true) : setErrors([response])
 		}
 		setLoading(false)

@@ -3,10 +3,10 @@ import cors from 'cors'
 import path from 'path'
 import { MongooseService } from './database/services/MongooseService'
 import authRouter from './api/routes/auth.routes'
-import bodyParser from 'body-parser'
 import friendsRouter from "./api/routes/friends.routes"
 import feedRouter from './api/routes/feed.routes'
 import postRouter from './api/routes/posts.routes'
+import exceptionMiddleware from './api/middlewares/exception.middleware'
 import multer from 'multer'
 
 export class App {
@@ -21,7 +21,6 @@ export class App {
 		this.app.use(express.json())
 		this.app.use(express.static(path.join(__dirname, this.clientBuildPath)))
 		this.app.use(express.urlencoded({ extended: true }))
-		this.app.use(bodyParser.json())
 	}
 	static ConfigureRoutes(): void {
 		this.app.use('/api/auth', authRouter)
@@ -35,6 +34,9 @@ export class App {
 		} catch (e) {
 			throw new Error(`${e}`)
 		}
+	}
+	static ConfigureErrorMiddleware(): void {
+		this.app.use(exceptionMiddleware)
 	}
 	static ServerStart(): void {
 		this.app.listen(this.PORT, () => {
