@@ -13,7 +13,7 @@
     - Encrypted instant messaging
     - Encrypted authorization 
     - Encrypted data transfers between client and server
-- Use the best practicies to be sure that every other software engineer could read code as a book
+- Use the best practices to be sure that every other software engineer could read code as a book
 - Totally separate server code from client code
 
 #
@@ -22,12 +22,13 @@
 
 Programming language: Typescipt
 
-- **Framework:** React
+- **JS Library:** React
 - **State manager:** Mobx
 - **Fetching library:** Axios
 - **Communication:** REST
-- **Styling library:** Bootstrap 
+- **UI library:** Bootstrap 
 - **Container**: Docker
+- **Style**: Object-oriented Programming
 
 #
 
@@ -38,5 +39,7 @@ Programming language: Typescipt
 - **Framework:** Express
 - **Communication:** REST
 - **Socket library**: Socket.io
-- **Data Base**: PostrgeSQL
+- **Data Base**: MongoDB
 - **Container**: Docker
+- **Architecture**: Microservices
+- **Style**: Object-oriented Programming

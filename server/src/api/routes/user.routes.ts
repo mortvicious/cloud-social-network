@@ -4,8 +4,8 @@ import {UserController} from "../controllers/UserController";
 
 const router: express.Router = express.Router()
 
-router.post('/set-settings', authMiddleware, UserController.setUserSettings)
-router.post('/upload-avatar', authMiddleware, UserController.uploadAvatar)
-router.get('/get-avatar', authMiddleware, UserController.getAvatar)
+router.post('/set-settings', authMiddleware, UserController.SetUserSettings)
+router.post('/upload-avatar', authMiddleware, UserController.UploadAvatar)
+router.get('/get-avatar', authMiddleware, UserController.GetAvatar)
 
 export default router

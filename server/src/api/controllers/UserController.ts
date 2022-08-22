@@ -3,7 +3,7 @@ import { Response } from 'express'
 import { User } from '../../database/models/UserModel'
 
 export class UserController {
-	static async uploadAvatar(req: IGetUserAuthInfoRequest, res: Response) {
+	static async UploadAvatar(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
 			return res.status(200).send( {message: 'Avatar has been uploaded'} )
@@ -12,7 +12,7 @@ export class UserController {
 		}
 	}
 	
-	static async getAvatar(req: IGetUserAuthInfoRequest, res: Response) {
+	static async GetAvatar(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
 			return res.status(200).send( {message: 'Avatar retrieved'} )
@@ -21,7 +21,7 @@ export class UserController {
 		}
 	}
 	
-	static async setUserSettings(req: IGetUserAuthInfoRequest, res: Response) {
+	static async SetUserSettings(req: IGetUserAuthInfoRequest, res: Response) {
 		try {
 			const {id} = req.user
 			const {settings} = req.body

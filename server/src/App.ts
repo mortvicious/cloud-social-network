@@ -14,7 +14,7 @@ export class App {
 	static readonly PORT : string = process.env.PORT || '5000'
 	static readonly origin: string = 'http://localhost:3000'
 	static readonly clientBuildPath: string = '../client/build'
-	static readonly upload: multer = multer()
+	static readonly upload: multer = multer({dest: './assets/uploads'})
 	
 	static ConfigureServer(): void {
 		this.app.use(cors({ credentials: true, origin: this.origin }))

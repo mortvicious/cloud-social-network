@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect, createContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Routing from './router/Routing'
 import user from './store/User/User'
 import AuthAPI from './api/AuthAPI'
 import Spinner from 'react-bootstrap/Spinner'
+
 
 function App() {
 	const [isLoading, setLoading] = useState<boolean>(true)
@@ -23,7 +24,7 @@ function App() {
 			<Routing />
 		</div>
 	) : (
-		<div className='app bg-light justify-content-center d-flex align-items-center'>
+		<div className='app bg-light justify-content-center d-flex flex-column align-items-center'>
 			<Spinner variant='primary' animation='border' role='status' />
 		</div>
 	)
