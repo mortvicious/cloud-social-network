@@ -36,5 +36,9 @@
       }
     ]
   },
+  "env": {
+    "browser": true,
+    "node": false
+  },
   "root": true
 }
