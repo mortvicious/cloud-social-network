@@ -1,5 +1,5 @@
-import { IUserPageModel } from './../../models/User/User.types';
-import { makeAutoObservable } from "mobx"
+import { IUserPageModel } from './../../models/User/User.types'
+import { makeAutoObservable } from 'mobx'
 
 class UserPage implements IUserPageModel {
 

@@ -1,4 +1,4 @@
-import { INewComment } from "../store/NewComment/NewComment.types";
+import { INewComment } from '../store/NewComment/NewComment.types'
 
 class CommentAPI {
     static async AddComment(data: INewComment, postID: string) {}

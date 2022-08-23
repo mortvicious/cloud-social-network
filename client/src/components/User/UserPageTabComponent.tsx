@@ -10,14 +10,14 @@ interface IUserPageTabComponent {
 }
 
 const UserPageTabComponent: FC<IUserPageTabComponent> = ({type, userID}) => {
-  return (
-    <React.Fragment>
-      {type === 'posts' ? <FeedComponent userID={userID} /> : null}
-      {type === 'friends' ? <UserFriendList /> : null}
-      {type === 'communities' ? <UserCommunitiesList /> : null}
-      {type === 'shares' ? <UserSharesList/> : null}
-    </React.Fragment>
-  )
+    return (
+        <React.Fragment>
+            {type === 'posts' ? <FeedComponent userID={userID} /> : null}
+            {type === 'friends' ? <UserFriendList /> : null}
+            {type === 'communities' ? <UserCommunitiesList /> : null}
+            {type === 'shares' ? <UserSharesList/> : null}
+        </React.Fragment>
+    )
 }
 
 export default UserPageTabComponent

@@ -4,11 +4,11 @@ import { INewComment } from './NewComment.types'
 
 class NewComment implements INewComment {
 
-	readonly authorID = user.id
-	content = ''
+    readonly authorID = user.id
+    content = ''
 
-	constructor() {
-		makeAutoObservable(this)
+    constructor() {
+        makeAutoObservable(this)
     }
     
     setContent(content: string) {

@@ -17,7 +17,7 @@ export interface IUserFriends {
 }
 
 export interface IUserSettings {
-
+	settings: object
 }
 
 export interface IUserToRegister {

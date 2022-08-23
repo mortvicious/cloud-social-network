@@ -4,23 +4,23 @@ import user from '../User/User'
 
 class NewPost implements INewPost {
 
-	readonly authorID = user.id
-	content = ''
+    readonly authorID = user.id
+    content = ''
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+    constructor() {
+        makeAutoObservable(this)
+    }
 
-	setContent(content: string) {
-		this.content = content
-	}
+    setContent(content: string) {
+        this.content = content
+    }
 
-	getData() {
-		return {
-			authorID: this.authorID,
-			content: this.content,
-		}
-	}
+    getData() {
+        return {
+            authorID: this.authorID,
+            content: this.content,
+        }
+    }
 }
 
 export default new NewPost()

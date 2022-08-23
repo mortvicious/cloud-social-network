@@ -17,36 +17,36 @@ import IDPostPage from '../pages/IDPostPage'
 import React from 'react'
 
 const Routing = observer(() => {
-	return user.isAuth ? (
-		<Router>
-			<RouterHelper authorized={true} />
-			<Routes>
-				<Route path='/' element={<AppPage />} />
-				<Route path='/friends' element={<FriendsPage />} />
-				<Route path='/communities' element={<CommunitiesPage />} />
-				<Route path='/messenger' element={<MessengerPage />} />
-				<Route path='/settings' element={<SettingsPage />} />
-				<Route path='/search' element={<SearchPage />} />
-				<Route path='/user' element={<UserPage />} />
-				<Route path='/user:id' element={<IDUserPage />} />
-				<Route path='/community:id' element={<IDCommunityPage />} />
-				<Route path='/post:id' element={<IDPostPage />} />
-				<Route path='*' element={<Navigate to='/' replace />} />
-			</Routes>
-		</Router>
-	) : (
-		<Router>
-			<RouterHelper authorized={false} />
-			<Routes>
-				<Route path={'/'} element={<LoginPage />} />
-				<Route path='/registration' element={<RegistrationPage />} />
-				<Route path='/user:id' element={<IDUserPage />} />
-				<Route path='/community:id' element={<IDCommunityPage />} />
-				<Route path='/post:id' element={<IDPostPage />} />
-				<Route path='*' element={<Navigate to='/' replace />} />
-			</Routes>
-		</Router>
-	)
+    return user.isAuth ? (
+        <Router>
+            <RouterHelper authorized={true} />
+            <Routes>
+                <Route path='/' element={<AppPage />} />
+                <Route path='/friends' element={<FriendsPage />} />
+                <Route path='/communities' element={<CommunitiesPage />} />
+                <Route path='/messenger' element={<MessengerPage />} />
+                <Route path='/settings' element={<SettingsPage />} />
+                <Route path='/search' element={<SearchPage />} />
+                <Route path='/user' element={<UserPage />} />
+                <Route path='/user:id' element={<IDUserPage />} />
+                <Route path='/community:id' element={<IDCommunityPage />} />
+                <Route path='/post:id' element={<IDPostPage />} />
+                <Route path='*' element={<Navigate to='/' replace />} />
+            </Routes>
+        </Router>
+    ) : (
+        <Router>
+            <RouterHelper authorized={false} />
+            <Routes>
+                <Route path={'/'} element={<LoginPage />} />
+                <Route path='/registration' element={<RegistrationPage />} />
+                <Route path='/user:id' element={<IDUserPage />} />
+                <Route path='/community:id' element={<IDCommunityPage />} />
+                <Route path='/post:id' element={<IDPostPage />} />
+                <Route path='*' element={<Navigate to='/' replace />} />
+            </Routes>
+        </Router>
+    )
 })
 
 export default Routing

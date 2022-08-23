@@ -7,27 +7,27 @@ import Spinner from 'react-bootstrap/Spinner'
 
 
 function App() {
-	const [isLoading, setLoading] = useState<boolean>(true)
-	const handleLoading = () => {
-		setLoading(false)
-	}
+    const [isLoading, setLoading] = useState<boolean>(true)
+    const handleLoading = () => {
+        setLoading(false)
+    }
 	
-	useEffect(() => {
-		window.addEventListener('load', handleLoading)
-		AuthAPI.Authenticate()
+    useEffect(() => {
+        window.addEventListener('load', handleLoading)
+        AuthAPI.Authenticate()
 		
-		return () => window.removeEventListener('load', handleLoading)
-	}, [])
+        return () => window.removeEventListener('load', handleLoading)
+    }, [])
 	
-	return !isLoading? (
-		<div className='app bg-light'>
-			<Routing />
-		</div>
-	) : (
-		<div className='app bg-light justify-content-center d-flex flex-column align-items-center'>
-			<Spinner variant='primary' animation='border' role='status' />
-		</div>
-	)
+    return !isLoading? (
+        <div className='app bg-light'>
+            <Routing />
+        </div>
+    ) : (
+        <div className='app bg-light justify-content-center d-flex flex-column align-items-center'>
+            <Spinner variant='primary' animation='border' role='status' />
+        </div>
+    )
 }
 
 export default App

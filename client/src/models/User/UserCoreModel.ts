@@ -1,19 +1,19 @@
 import { IUserCoreModel } from './User.types'
 
 export class UserCoreModel implements IUserCoreModel {
-	username = ''
-	id = ''
-	avatar = ''
-	link = ''
+    username = ''
+    id = ''
+    avatar = ''
+    link = ''
 
-	constructor(username: string, id: string, avatar: string, link: string) {
-		this.username = username
-		this.id = id
-		this.avatar = avatar
-		this.link = link
-	}
+    constructor(user: IUserCoreModel) {
+        this.username = user.username
+        this.id = user.id
+        this.avatar = user.avatar
+        this.link = user.link
+    }
 
-	static init(user: IUserCoreModel): IUserCoreModel {
-		return new UserCoreModel(user.username, user.id, user.avatar, user.link)
-	}
+    static init(user: IUserCoreModel): IUserCoreModel {
+        return new UserCoreModel(user)
+    }
 }

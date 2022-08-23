@@ -12,28 +12,28 @@ interface IFeedComponent {
 }
 
 const FeedComponent: FC<IFeedComponent> = ({userID}) => {
-	const [posts, setPosts] = useState<IPostModel[]>([])
+    const [posts, setPosts] = useState<IPostModel[]>([])
 
-	useEffect(() => {
-		//---fetch posts pagination---
-		//if user set posts from user
-		//else set posts from friends/community
-		if (userID) {
-			UserAPI.GetUserFeedPosts(userID)
-		} else {
-			FeedAPI.GetFeedPosts()
-		}
-		setPosts(mockPosts)
-	}, [])
+    useEffect(() => {
+        // ---fetch posts pagination---
+        // if user set posts from user
+        // else set posts from friends/community
+        if (userID) {
+            UserAPI.GetUserFeedPosts(userID)
+        } else {
+            FeedAPI.GetFeedPosts()
+        }
+        setPosts(mockPosts)
+    }, [])
 
-	return (
-		<React.Fragment>
-			{userID ? null : <FeedCreatePostFormComponent />}
-			{posts.map((post) => (
-				<PostComponent key={post.id} post={PostModel.init(post)} />
-			))}
-		</React.Fragment>
-	)
+    return (
+        <React.Fragment>
+            {userID ? null : <FeedCreatePostFormComponent />}
+            {posts.map((post) => (
+                <PostComponent key={post.id} post={PostModel.init(post)} />
+            ))}
+        </React.Fragment>
+    )
 }
 
 export default FeedComponent

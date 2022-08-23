@@ -5,16 +5,16 @@ import Col from 'react-bootstrap/Col'
 import FeedComponent from '../components/Feed/FeedComponent'
 
 const AppPage: FC = () => {
-	return (
-		<Container className='container-full-height mt-5'>
-			<Row className='h-100'>
-				<Col className='d-flex flex-column gap-4' xs={9}>
-					<FeedComponent />
-				</Col>
-				<Col className='border-left'>2</Col>
-			</Row>
-		</Container>
-	)
+    return (
+        <Container className='container-full-height mt-5'>
+            <Row className='h-100'>
+                <Col className='d-flex flex-column gap-4' xs={9}>
+                    <FeedComponent />
+                </Col>
+                <Col className='border-left'>2</Col>
+            </Row>
+        </Container>
+    )
 }
 
 export default AppPage

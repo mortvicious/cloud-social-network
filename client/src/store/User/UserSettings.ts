@@ -4,9 +4,9 @@ import { IUserSettings } from './User.types'
 
 class UserSettings implements IUserSettings {
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+    constructor() {
+        makeAutoObservable(this)
+    }
 }
 
 export default new UserSettings()

@@ -9,18 +9,18 @@ interface IRouterHelper {
 }
 
 const RouterHelper: FC<IRouterHelper> = ({ authorized }) => {
-	const location = useLocation()
-	return authorized ? (
-		<NavigationComponent />
-	) : (
-		<>
-			{location.pathname === '/' ? (
-				<Logo />
-			) : (
-				<NavigationUnauthorizedComponent />
-			)}
-		</>
-	)
+    const location = useLocation()
+    return authorized ? (
+        <NavigationComponent />
+    ) : (
+        <>
+            {location.pathname === '/' ? (
+                <Logo />
+            ) : (
+                <NavigationUnauthorizedComponent />
+            )}
+        </>
+    )
 }
 
 export default RouterHelper

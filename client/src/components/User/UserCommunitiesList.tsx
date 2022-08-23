@@ -1,9 +1,9 @@
 import React from 'react'
 
 const UserCommunitiesList = () => {
-  return (
-    <div>UserCommunitiesList</div>
-  )
+    return (
+        <div>UserCommunitiesList</div>
+    )
 }
 
 export default UserCommunitiesList
