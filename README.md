@@ -43,3 +43,4 @@ Programming language: Typescipt
 - **Container**: Docker
 - **Architecture**: Microservices
 - **Style**: Object-oriented Programming
+
