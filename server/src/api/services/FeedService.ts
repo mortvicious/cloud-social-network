@@ -1,7 +1,7 @@
-import {FriendsService} from "./FriendsService";
-import {Sorter} from "../../helpers/Sorter";
-import {UserService} from "./UserService";
-import {CommunitiesService} from "./CommunitiesService";
+import {FriendsService} from './FriendsService'
+import {Sorter} from '../../helpers/Sorter'
+import {UserService} from './UserService'
+import {CommunitiesService} from './CommunitiesService'
 
 export class FeedService {
     static async GetUserFeedPosts(userId: string) {

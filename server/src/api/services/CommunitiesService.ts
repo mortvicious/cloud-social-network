@@ -1,5 +1,5 @@
 import { User } from '../../database/models/UserModel'
-import { Community } from "../../database/models/CommunityModel";
+import { Community } from '../../database/models/CommunityModel'
 
 export class CommunitiesService {
     static async GetUserCommunitiesList(userId: string) {

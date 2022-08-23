@@ -1,6 +1,6 @@
 import * as express from 'express'
 import authMiddleware from '../middlewares/auth.middleware'
-import {FeedController} from "../controllers/FeedController";
+import {FeedController} from '../controllers/FeedController'
 
 const router: express.Router = express.Router()
 

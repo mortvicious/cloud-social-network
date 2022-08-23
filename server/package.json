@@ -1,12 +1,14 @@
 {
 	"name": "cloud-social-network-server",
-	"version": "3.2.0",
+	"version": "1.0.0",
 	"description": "A delightful way to building a Node.js RESTful API Services with beautiful code written in TypeScript",
 	"main": "src/index.ts",
 	"scripts": {
 		"start": "nodemon ./src/index.ts",
 		"test": "npm start test",
-		"build": "npm start build"
+		"build": "npm start build",
+		"lint": "eslint --fix --quiet --ext .tsx,.ts src/",
+		"lint-warn": "eslint --fix --ext .tsx,.ts src/"
 	},
 	"engines": {
 		"node": ">=8.0.0"
@@ -14,7 +16,6 @@
 	"dependencies": {
 		"@types/jsonwebtoken": "^8.5.8",
 		"bcrypt": "^5.0.1",
-		"body-parser": "^1.20.0",
 		"class-validator": "^0.9.1",
 		"class-validator-jsonschema": "^1.3.0",
 		"compression": "^1.7.1",
@@ -72,6 +73,22 @@
 		"@types/morgan": "^1.7.35",
 		"@types/node": "^12.7.5",
 		"@types/uuid": "^3.4.3",
-		"@types/winston": "^2.3.7"
+		"@types/winston": "^2.3.7",
+		"@typescript-eslint/eslint-plugin": "^5.32.0",
+		"@typescript-eslint/eslint-plugin-tslint": "^5.32.0",
+		"@typescript-eslint/parser": "^5.32.0",
+		"eslint": "^8.22.0",
+		"eslint-config-alloy": "^4.6.2",
+		"eslint-config-node": "^4.1.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-jsdoc": "^39.3.4",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-no-null": "^1.0.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prefer-arrow": "^1.2.3",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.28.0",
+		"eslint-plugin-react-hooks": "^4.3.0"
 	}
 }

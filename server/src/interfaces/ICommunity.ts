@@ -1,5 +1,5 @@
-import {ObjectId} from "mongoose";
-import {IPost} from "./IPost";
+import {ObjectId} from 'mongoose'
+import {IPost} from './IPost'
 
 export interface ICommunity {
     name: string,

@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "alloy",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off", 
+    "indent": ["error", 4],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "array-callback-return": "warn",
+    "no-process-exit": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "max-params": ["error", 4],
+    "react/jsx-filename-extension": [0],
+    "import/no-unresolved": [2, { "commonjs": false, "amd": true }],
+    "no-use-before-define": ["error", {"functions": false, "classes": true, "variables":  false}],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "browser": false
+  },
+  "root": true
+}

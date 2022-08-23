@@ -1,6 +1,6 @@
-import {IGetUserAuthInfoRequest} from "../../interfaces/IGetUserAuthInfoReq"
-import {Response} from "express"
-import {FeedService} from "../services/FeedService";
+import {IGetUserAuthInfoRequest} from '../../interfaces/IGetUserAuthInfoReq'
+import {Response} from 'express'
+import {FeedService} from '../services/FeedService'
 
 export class FeedController {
     static async FetchFeedPosts(req: IGetUserAuthInfoRequest, res: Response) {

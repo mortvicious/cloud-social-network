@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
-import {ICommunity} from "../../interfaces/ICommunity";
-import {postSchema} from "./PostModel";
+import {ICommunity} from '../../interfaces/ICommunity'
+import {postSchema} from './PostModel'
 
 export const communitySchema = new Schema<ICommunity>({
     name: { type: String, required: true },

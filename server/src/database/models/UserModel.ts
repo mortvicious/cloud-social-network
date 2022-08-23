@@ -1,10 +1,10 @@
-import { Schema, model } from "mongoose";
-import {IFriendRequests, IUser} from "../../interfaces/IUser";
-import {postSchema} from "./PostModel";
+import { Schema, model } from 'mongoose'
+import {IFriendRequests, IUser} from '../../interfaces/IUser'
+import {postSchema} from './PostModel'
 
 const friendRequestsSchema = new Schema<IFriendRequests>({
-	from: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-	to: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    from: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    to: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 })
 
 const settingsSchema = new Schema({
