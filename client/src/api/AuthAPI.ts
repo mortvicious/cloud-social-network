@@ -15,9 +15,7 @@ class AuthAPI {
                 }
             )
         } catch (e: any) {
-            const error = e.response.data.message
-            console.log(error)
-            return error
+            return e.response.data.message
         }
     }
 
