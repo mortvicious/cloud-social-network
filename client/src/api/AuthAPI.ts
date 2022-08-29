@@ -4,24 +4,36 @@ import {IUserCoreModel, IUserLogin} from './../models/User/User.types';
 import {IUserToRegister} from './../store/User/User.types';
 import userStore from '../store/User/User'
 
-import APIMethodDict from './API.json';
+import { auth as AuthAPIMethods } from './API.json';
 
-// !TODO : Вывести переменную адреса доменав окружение. Явно будет удобнее.
-const PRODUCTION_DOMEN = process.env.prodDomen || 'http://localhost:5000';
+// Utils
+import { Dict } from '../utils'
+
+// Contaracts
+import { AuthenticateContract } from '../interfaces/auth/Autanticate.contract'
+
+// Mocks
+import { mockAuthContract } from '../mock/mockAuthContract'
 
 namespace Errors {
   export const enum Auth {
-    CONTRACT = 'Not valid user contract'
+		UNDEFINED = 'Undefined error',
+    CONTRACT = 'Not valid user contract',
+
   }
 }
 
 class AuthAPI {
+
+	// !TODO : Вывести переменную адреса доменав окружение. Явно будет удобнее.
+	private static PRODUCTION_DOMEN = process.env.prodDomen || 'http://localhost:5000';
+
   static async Login({ email, password }: IUserLogin) {
 
     try {
 
       return await axios.post(
-        `${ PRODUCTION_DOMEN }/${ APIMethodDict.auth.login }`,
+        `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.login }`,
         {
           email,
           password,
@@ -43,7 +55,7 @@ class AuthAPI {
   static async Register<T extends object>({ email, username, password, link }: IUserToRegister): Promise<AxiosResponse<T>> {
 
     const response = await axios.post<T>(
-      `${ PRODUCTION_DOMEN }/${ APIMethodDict.auth.registration }`,
+      `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.registration }`,
       { email, username, password, link }
     )
 
@@ -58,34 +70,22 @@ class AuthAPI {
     // !TODO : Вывести обработку ошибок куда-то отдельно из тела функции
     if ( !Token ) throw new Error('Local user token is undefined')
 
-    // !TODO : Выделить контракт между сервером в одельный тип/интерфейс
-    type AuthenticateContract = {
-      user: IUserCoreModel,
-      token: string,
-      // ? По идее ты хранишь ID в двух местах, если судить по интерфейсам. Если ID связанны, то это поле можно игнорировать.  
-      id ?: IUserCoreModel['id'],
-    }
-
-    // !TODO : Вывести ключи в отдельный валидатор.
-    const AuthenticateContractKeys: Array<keyof AuthenticateContract> = ['user', 'token', 'id']
-
-    try {
+		try {
 
       const { data } = await axios.get<AuthenticateContract>(
-        // !TODO : Дополнить словарь методов 
-        `${ PRODUCTION_DOMEN }/api/auth/authenticate`,
+        `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.authenticate }`,
         {
           headers: {
-            Authorization: `Bearer ${ localStorage.getItem('token') }`,
+            Authorization: `Bearer ${ Token }`,
           },
         }
       )
 
       // ! : Если контракт между сервером поменяется, но ответ будет: Это к чертям положит биндинг пользователя.
       // ! : Так что, наверное, лучше провалидировать это даже внутри try-catch.
-      // ? : Возможно стоит вывести отдельной функцией, чтобы не засорят метод...
+      // ? : Возможно стоит вывести отдельной функцией, чтобы не засорять метод...
 
-      AuthenticateContractKeys.forEach((key) => {
+      Dict.keys(mockAuthContract).forEach(key => {
 
         if ( data[ key ] === null ) throw Error(`${ Errors.Auth.CONTRACT }: Key ${ key } is undefined in response`);
 
@@ -103,15 +103,21 @@ class AuthAPI {
 
       userStore.setAuth(true)
 
-    } catch (e: any) {
+    } catch (e) {
 
-      console.debug(e.response.data.message)
+			// ? : Опять же, не факт что мы вообще получим этот message. Так что лучше будет его заранее задать.
+      // console.debug(e.response.data.message)
+
+			e instanceof Error
+				? console.debug(e.message)
+				: console.debug(Errors.Auth.UNDEFINED, e)
 
       localStorage.removeItem('token');
       localStorage.removeItem('id');
 
     }
   }
+
 }
 
 export default AuthAPI
