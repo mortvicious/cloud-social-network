@@ -1,17 +1,18 @@
 import { IGetUserAuthInfoRequest } from '../../interfaces/IGetUserAuthInfoReq'
 import { Response } from 'express'
+import {User} from '../../database/models/UserModel'
 import fs from 'fs'
 import {IMulterFileInfoReq} from '../../interfaces/IMulterFileInfoReq'
 
 export class UserController {
     static async UploadAvatar(req: IMulterFileInfoReq, res: Response) {
         try {
-            // const {id} = req.user
-            // const email = await User.findById(id).select('email')
+            const {id} = req.user
+            const email = await User.findById(id).select('email')
             const filetype = req.file.mimetype.split('/')[1]
-            const newFilename = req.file.filename
+            // const newFilename = req.file.filename
             // const newFilename = `${email}.${filetype}`
-            fs.rename(`./uploads`, '', () => {})
+            fs.rename(`./uploads${email}.${filetype}`, '', () => {})
             return res.status(200).send( {message: 'Avatar has been uploaded'} )
         } catch (e) {
             return res.status(400).send( {message: 'Error uploading avatar'} )

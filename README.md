@@ -44,3 +44,14 @@ Programming language: Typescipt
 - **Architecture**: Microservices
 - **Style**: Object-oriented Programming
 
+###
+
+## **Development**
+
+`cd client && yarn install`
+
+`cd server && yarn install`
+
+`cd server && mv example.env .env`
+
+MongoURI provided with read-write role, so server should work on all machines

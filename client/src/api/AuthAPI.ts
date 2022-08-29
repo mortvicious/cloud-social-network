@@ -20,9 +20,7 @@ class AuthAPI {
     private static PRODUCTION_DOMEN = process.env.prodDomen || 'http://localhost:5000'
 
     static async Login({ email, password }: IUserLogin) {
-
         try {
-
             return await axios.post(
                 `${ AuthAPI.PRODUCTION_DOMEN }/${ this.AuthAPIMethods.login }`,
                 {
@@ -30,26 +28,21 @@ class AuthAPI {
                     password,
                 }
             )
-
         } catch (e) {
-
             const error = e.response.data.message
             console.log(error)
             return error
-
         }
-
     }
 
     static async Logout() {}
 
-    static async Register<T extends object>({ email, username, password, link }: IUserToRegister): Promise<AxiosResponse<T>> {
-
+    static async Register<T extends object>(
+        {email, username, password, link }: IUserToRegister): Promise<AxiosResponse<T>> {
         const response = await axios.post<T>(
             `${ AuthAPI.PRODUCTION_DOMEN }/${ this.AuthAPIMethods.registration }`,
             { email, username, password, link }
         )
-
         return response
 
     }
