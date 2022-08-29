@@ -1,4 +1,4 @@
-import { IUserCoreModel } from '../../models/User/User.types';
+import { IUserCoreModel } from '../../models/User/User.types'
 
 export type AuthenticateContract = {
   user	: IUserCoreModel,
