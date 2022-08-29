@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
-
 import {IUserLogin} from './../models/User/User.types'
 import {IUserToRegister} from './../store/User/User.types'
 import userStore from '../store/User/User'
-
 import APIMethods from './API.json'
+import APIErrors from './APIErrors/APIErrors'
 
 // Utils
 import { Dict } from '../utils/index'
@@ -15,16 +14,7 @@ import { AuthenticateContract } from '../interfaces/auth/Autanticate.contract'
 // Mocks
 import { mockAuthContract } from '../mock/mockAuthContract'
 
-namespace Errors {
-  export const enum Auth {
-      UNDEFINED = 'Undefined error', 
-      CONTRACT = 'Not valid user contract',
-
-  }
-}
-
 class AuthAPI {
-    
     private static AuthAPIMethods = APIMethods.auth
     // !TODO : Вывести переменную адреса доменав окружение. Явно будет удобнее.
     private static PRODUCTION_DOMEN = process.env.prodDomen || 'http://localhost:5000'
@@ -88,7 +78,7 @@ class AuthAPI {
 
             Dict.keys(mockAuthContract).forEach(key => {
 
-                if ( data[ key ] === null ) throw Error(`${ Errors.Auth.CONTRACT }: Key ${ key } is undefined in response`)
+                if ( data[ key ] === null ) throw Error(`${ APIErrors.Auth.CONTRACT }: Key ${ key } is undefined in response`)
 
                 switch (key) {
                 case 'user': 
@@ -111,7 +101,7 @@ class AuthAPI {
 
             e instanceof Error
                 ? console.debug(e.message)
-                : console.debug(Errors.Auth.UNDEFINED, e)
+                : console.debug(APIErrors.Auth.UNDEFINED, e)
 
             localStorage.removeItem('token')
             localStorage.removeItem('id')
