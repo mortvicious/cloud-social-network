@@ -1,18 +1,27 @@
 import React, { FC, useEffect, useState } from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import { NavLink } from 'react-router-dom'
-import AuthAPI from '../api/AuthAPI'
-import { Validator } from '../helpers/Validator'
-import userAuthStore from '../store/User/UserAuth'
 import { observer } from 'mobx-react-lite'
+
+// API
+import AuthAPI from '../api/AuthAPI'
+
+// Helpers
+import { Validator } from '../helpers/Validator'
 import { ErrorHandler } from '../helpers/ErrorHandler'
-import Spinner from 'react-bootstrap/Spinner'
+
+// Store
+import userAuthStore from '../store/User/UserAuth'
+
+// Components
+import Form 		from 'react-bootstrap/Form'
+import Button 	from 'react-bootstrap/Button'
+import Card 		from 'react-bootstrap/Card'
+import Spinner 	from 'react-bootstrap/Spinner'
 
 const RegistrationPage: FC = observer(() => {
+
     const [isLoading, setLoading] = useState<boolean>(false)
-    const [errors, setErrors] = useState<string[]>([])
+    const [errors, setErrors] 		= useState<string[]>([])
     const [isSuccess, setSuccess] = useState<boolean>(false)
 
     const handleRegBtn = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,15 +31,23 @@ const RegistrationPage: FC = observer(() => {
         const result: boolean = Validator.ValidateAll(
             userAuthStore.getUserToValidate()
         )
+
         setErrors(ErrorHandler.GetErrors())
 
         if (result) {
-            const response = await AuthAPI.Register(
+
+            const { status, data } = await AuthAPI.Register<{ message: string }>(
                 userAuthStore.getUserToRegistration()
             )
-            response.status === 200 ? setSuccess(true) : setErrors([response])
+
+            status === 200
+                ? setSuccess(true)
+                : setErrors([data.message])
+
         }
+
         setLoading(false)
+
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,12 +60,12 @@ const RegistrationPage: FC = observer(() => {
         setLoading(true)
     }
 
-    useEffect(() => {}, [errors])
+    useEffect(() => { }, [errors])
 
     return (
         <div className="container p-3 px-5 d-flex flex-column justify-content-center">
             <div className="w-100 d-flex justify-content-center mt-1">
-                <Card className="p-5 w-50 d-flex ">
+                <Card className="p-5 w-50 d-flex">
                     <div className="d-flex flex-column justify-content-center align-items-center gap-0 pb-4 pt-0">
                         {errors?.map((error: string) => (
                             <p key={error} className="text-danger m-0 p-0">
@@ -74,7 +91,7 @@ const RegistrationPage: FC = observer(() => {
                                 placeholder="Enter email"
                             />
                             <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
+                                We'll never share your email with anyone else.
                             </Form.Text>
                         </Form.Group>
 
@@ -110,7 +127,7 @@ const RegistrationPage: FC = observer(() => {
                                 placeholder="Enter username"
                             />
                             <Form.Text className="text-muted">
-                Other users will see your username.
+                                Other users will see your username.
                             </Form.Text>
                         </Form.Group>
 
@@ -127,10 +144,10 @@ const RegistrationPage: FC = observer(() => {
 
                         <div className="d-flex align-items-center gap-4">
                             <Button onClick={handleRegBtn} variant="primary" type="submit">
-                Register
+                                Register
                             </Button>
                             <NavLink to="/" className="text-decoration-underline pointer">
-                Already registered? Back to login page
+                                Already registered? Back to login page
                             </NavLink>
                         </div>
                     </Form>

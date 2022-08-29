@@ -19,6 +19,7 @@
     "array-callback-return": "warn",
     "no-process-exit": "off",
     "no-empty-function": "off",
+    "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-empty-function": "off",
     "object-shorthand": "off",
     "class-methods-use-this": "off",
