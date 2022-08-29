@@ -66,7 +66,7 @@ const RegistrationPage: FC = observer(() => {
         <div className="container p-3 px-5 d-flex flex-column justify-content-center">
             <div className="w-100 d-flex justify-content-center mt-1">
                 <Card className="p-5 w-50 d-flex">
-                    <div className="d-flex flex-column justify-content-center align-items-center gap-0 pb-4 pt-0">
+                    <div className="d-flex flex-column fnt-small justify-content-center align-items-center gap-0 pb-4 pt-0">
                         {errors?.map((error: string) => (
                             <p key={error} className="text-danger m-0 p-0">
                                 {error}

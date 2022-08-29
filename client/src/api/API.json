@@ -1,34 +1,34 @@
 {
 	"auth": {
-		"registration": "/api/auth/registration/",
-		"login": "/api/auth/login",
-		"refresh": "/api/auth/refresh",
-		"authenticate": "/api/auth/authenticate"
+		"registration": "api/auth/registration/",
+		"login": "api/auth/login",
+		"refresh": "api/auth/refresh",
+		"authenticate": "api/auth/authenticate"
 	},
 	"friend": {
-		"requestAccept": "/api/friends/request-accept",
-		"requestDecline": "/api/friends/request-decline",
-		"requestSend": "/api/friends/request-send",
-		"delete": "/api/friends/delete"
+		"requestAccept": "api/friends/request-accept",
+		"requestDecline": "api/friends/request-decline",
+		"requestSend": "api/friends/request-send",
+		"delete": "api/friends/delete"
 	},
 	"user": {
-		"get": "/api/user/get-user",
-		"getId": "/api/user/get-user-id",
-		"getPosts": "/api/user/get-user-posts",
-		"getFriends": "/api/user/get-user-friends"
+		"get": "api/user/get-user",
+		"getId": "api/user/get-user-id",
+		"getPosts": "api/user/get-user-posts",
+		"getFriends": "api/user/get-user-friends"
 	},
 	"feed": {
-		"getPosts": "/api/feed/get-posts",
-		"post": "/api/feed/post"
+		"getPosts": "api/feed/get-posts",
+		"post": "api/feed/post"
 	},
 	"post": {
-		"like": "/api/post/like",
-		"unline": "/api/post/unlike",
-		"commentPost": "/api/post/comment",
+		"like": "api/post/like",
+		"unline": "api/post/unlike",
+		"commentPost": "api/post/comment",
 		"comment": {
-			"like": "/api/post/comment/like",
-			"dislike": "/api/post/comment/dislike",
-            "post": "/api/post/comment/post"
+			"like": "api/post/comment/like",
+			"dislike": "api/post/comment/dislike",
+            "post": "api/post/comment/post"
 		}
 	}
 }
