@@ -4,12 +4,12 @@ import {IUserLogin} from './../models/User/User.types'
 import {IUserToRegister} from './../store/User/User.types'
 import userStore from '../store/User/User'
 
-import { auth as AuthAPIMethods } from './API.json'
+import APIMethods from './API.json'
 
 // Utils
 import { Dict } from '../utils/index'
 
-// Contaracts
+// Contracts
 import { AuthenticateContract } from '../interfaces/auth/Autanticate.contract'
 
 // Mocks
@@ -24,6 +24,8 @@ namespace Errors {
 }
 
 class AuthAPI {
+    
+    private static AuthAPIMethods = APIMethods.auth
     // !TODO : Вывести переменную адреса доменав окружение. Явно будет удобнее.
     private static PRODUCTION_DOMEN = process.env.prodDomen || 'http://localhost:5000'
 
@@ -32,7 +34,7 @@ class AuthAPI {
         try {
 
             return await axios.post(
-                `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.login }`,
+                `${ AuthAPI.PRODUCTION_DOMEN }/${ this.AuthAPIMethods.login }`,
                 {
                     email,
                     password,
@@ -54,7 +56,7 @@ class AuthAPI {
     static async Register<T extends object>({ email, username, password, link }: IUserToRegister): Promise<AxiosResponse<T>> {
 
         const response = await axios.post<T>(
-            `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.registration }`,
+            `${ AuthAPI.PRODUCTION_DOMEN }/${ this.AuthAPIMethods.registration }`,
             { email, username, password, link }
         )
 
@@ -72,7 +74,7 @@ class AuthAPI {
         try {
 
             const { data } = await axios.get<AuthenticateContract>(
-                `${ AuthAPI.PRODUCTION_DOMEN }/${ AuthAPIMethods.authenticate }`,
+                `${ AuthAPI.PRODUCTION_DOMEN }/${ this.AuthAPIMethods.authenticate }`,
                 {
                     headers: {
                         Authorization: `Bearer ${ Token }`,
