@@ -7,7 +7,7 @@ import userStore from '../store/User/User'
 import { auth as AuthAPIMethods } from './API.json'
 
 // Utils
-import { Dict } from '../utils'
+import { Dict } from '../utils/index'
 
 // Contaracts
 import { AuthenticateContract } from '../interfaces/auth/Autanticate.contract'
