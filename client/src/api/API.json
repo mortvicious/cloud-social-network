@@ -2,7 +2,8 @@
 	"auth": {
 		"registration": "/api/auth/registration/",
 		"login": "/api/auth/login",
-		"refresh": "/api/auth/refresh"
+		"refresh": "/api/auth/refresh",
+		"authenticate": "/api/auth/authenticate"
 	},
 	"friend": {
 		"requestAccept": "/api/friends/request-accept",
