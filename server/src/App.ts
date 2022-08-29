@@ -7,14 +7,15 @@ import friendsRouter from './api/routes/friends.routes'
 import feedRouter from './api/routes/feed.routes'
 import postRouter from './api/routes/posts.routes'
 import exceptionMiddleware from './api/middlewares/exception.middleware'
-import multer from 'multer'
+import userRouter from './api/routes/user.routes'
+// import multer from 'multer'
 
 export class App {
     static readonly app: Express = express()
     static readonly PORT : string = process.env.PORT || '5000'
     static readonly origin: string = 'http://localhost:3000'
     static readonly clientBuildPath: string = '../client/build'
-    static readonly upload: multer = multer({dest: './assets/uploads'})
+    // static readonly upload: multer = multer({dest: './assets/uploads'})
 	
     static ConfigureServer(): void {
         this.app.use(cors({ credentials: true, origin: this.origin }))
@@ -27,6 +28,7 @@ export class App {
         this.app.use('/api/friends', friendsRouter)
         this.app.use('/api/feed', feedRouter)
         this.app.use('/api/post', postRouter)
+        this.app.use('/api/user', userRouter)
     }
     static ConfigureDB(): void {
         try {
